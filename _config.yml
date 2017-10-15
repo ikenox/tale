@@ -17,7 +17,8 @@ markdown:       kramdown
 
 # About
 author:
-  name:         Naoto Ikeno
+  name:
+  nickname:     ikenox
   url:
   email:
 
