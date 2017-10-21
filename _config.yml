@@ -32,3 +32,10 @@ github:
 # Gems
 gems:
   - jekyll-paginate
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - CNAME
