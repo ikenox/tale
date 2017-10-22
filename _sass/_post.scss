@@ -3,7 +3,7 @@
 
   &-info {
     color: $default-tint;
-    font-family: $mincho-font;
+    font-family: 'Times New Roman';
     letter-spacing: .5px;
     text-align: center;
 
@@ -35,4 +35,21 @@
   a:hover {
     text-decoration: underline;
   }
+
+  .share-buttons {
+    text-align: center;
+    padding: 20px 0;
+    div {
+      display: inline-block;
+    }
+  }
+
+  .fb_iframe_widget > span {
+	vertical-align: baseline !important;
+  }
+
+  .pocket-btn > iframe {
+      height:20px;
+  }
+
 }
