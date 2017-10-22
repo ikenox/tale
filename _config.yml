@@ -19,9 +19,14 @@ markdown:       kramdown
 author:
   name:
   nickname:     ikenox
-  url:
-  email:
 
+# Accounts
+accounts:
+  github: ikenox
+  twitter: ikenoxx
+  facebook: na.ik.54
+
+# Google analytics
 google_analytics: UA-108087720-1
 
 # Custom vars
@@ -32,3 +37,10 @@ github:
 # Gems
 gems:
   - jekyll-paginate
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - CNAME
