@@ -13,6 +13,23 @@ layout: base
   <h1 class="post-title">{{ page.title }}</h1>
   <div class="post-line"></div>
 
+  <div align="center">
+
+    <img class="about-profile-image" src="{{ 'assets/img/profile_photo.jpeg' | absolute_url }}" alt="profile" width="180px"/>
+
+    <span class="about-author-name">
+      {{ site.author.name_en }} ({{ site.author.name_ja }})
+    </span>
+    <br>
+    <span class="about-author-job">
+      {{ site.author.job }}
+    </span>
+    <br><br>
+
+      Github: <a href="https://github.com/{{ site.accounts.github }}" target="_blank">@{{ site.accounts.github }}</a><br>
+      Twitter: <a href="https://twitter.com/{{ site.accounts.twitter }}" target="_blank">@{{ site.accounts.twitter }}</a>
+  </div>
+
   {{ content }}
 
 </div>

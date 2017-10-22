@@ -17,8 +17,10 @@ markdown:       kramdown
 
 # About
 author:
-  name:
-  nickname:     ikenox
+  name_ja: 池野直人
+  name_en: Naoto Ikeno
+  job: Web application engineer
+  nickname: ikenox
 
 # Accounts
 accounts:
