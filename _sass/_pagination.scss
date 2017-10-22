@@ -1,20 +1,18 @@
 .pagination {
-  border-top: .5px solid $grey-2;
-  font-family: $sans-font;
+  border-top: .5px solid $color-primary;
+  font-family: $font-sans;
   padding-top: 2rem;
   position: relative;
   text-align: center;
   padding-bottom: 2rem;
 
   span {
-    color: $default-shade;
     font-size: 1.1rem;
   }
 
   .top {
     @include transition(all .3s ease-out);
-    color: $default-color;
-    font-family: $sans-font;
+    font-family: $font-sans;
     font-size: 1.1rem;
     opacity: .6;
 
@@ -25,7 +23,6 @@
 
   .arrow {
     @include transition(all .3s ease-out);
-    color: $default-color;
     position: absolute;
 
     &:hover,

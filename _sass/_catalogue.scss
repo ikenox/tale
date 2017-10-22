@@ -1,7 +1,6 @@
 .catalogue {
   &-item {
-    border-bottom: 1px solid $grey-2;
-    color: $default-color;
+    border-bottom: 1px solid $color-grey2;
     display: inline-block;
     padding: 2rem 0;
 
@@ -16,16 +15,15 @@
   }
 
   &-time {
-    color: $default-tint;
+    color: $color-primary;
     letter-spacing: .5px;
     font-size: 1.2rem;
-    font-family: $saira-font;
+    font-family: $font-saira;
   }
 
   &-title {
-    color: $default-shade;
     display: block;
-    font-family: $sans-font;
+    font-family: $font-sans;
     font-size: 2rem;
     font-weight: 700;
     margin: .5rem 0;
@@ -33,7 +31,7 @@
 
   &-line {
     @include transition(all .3s ease-out);
-    border-top: .2rem solid $default-shade;
+    border-top: .2rem solid $color-primary;
     display: block;
     width: 2rem;
   }

@@ -5,13 +5,13 @@
 
 html,
 body {
-  color: $default-color;
+  color: $color-text;
   margin: 0;
   padding: 0;
 }
 
 html {
-  font-family: $mincho-font;
+  font-family: $font-mincho;
   font-size: 14px;
   min-height: 100%;
   position: relative;
@@ -31,19 +31,18 @@ h3,
 h4,
 h5,
 h6 {
-  color: $default-shade;
-  font-family: $sans-font;
+  font-family: $font-sans;
   line-height: normal;
 }
 
 a {
-  color: $blue;
+  color: $color-text;
   text-decoration: none;
 }
 
 blockquote {
-  border-left: .25rem solid $grey-2;
-  color: $grey-1;
+  border-left: .25rem solid $color-grey2;
+  color: $color-grey;
   margin: .8rem 0;
   padding: .5rem 1rem;
 
