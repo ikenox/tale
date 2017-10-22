@@ -15,6 +15,8 @@ $saira-font: 'Saira Extra Condensed', sans-serif;
 $monospaced-font: Menlo, Monaco, monospace;
 $code-color: #bf616a;
 
+$footer-height: 100px;
+
 @mixin box-sizing($type: border-box) {
   -webkit-box-sizing: $type;
      -moz-box-sizing: $type;
