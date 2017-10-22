@@ -1,6 +1,6 @@
 ---
 layout: post
-title: First commit
+title: first commit
 ---
 
 [Jekyll](https://jekyllrb-ja.github.io/) + [GitHub Pages](https://pages.github.com/)でブログを作ってみた。<br>
