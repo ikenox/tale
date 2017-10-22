@@ -14,6 +14,8 @@ $mincho-font: 'Hiragino Mincho ProN', 'ヒラギノ明朝 Pro W6', 'Hiragino Min
 $monospaced-font: Menlo, Monaco, monospace;
 $code-color: #bf616a;
 
+$footer-height: 100px;
+
 @mixin box-sizing($type: border-box) {
   -webkit-box-sizing: $type;
      -moz-box-sizing: $type;
