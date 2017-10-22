@@ -1,6 +1,6 @@
 .catalogue {
   &-item {
-    border-bottom: 1px solid $color-grey2;
+    border-bottom: 1px solid $color-primary;
     display: inline-block;
     padding: 2rem 0;
 
@@ -18,7 +18,7 @@
     color: $color-primary;
     letter-spacing: .5px;
     font-size: 1.2rem;
-    font-family: $font-saira;
+    font-family: $font-date;
   }
 
   &-title {
