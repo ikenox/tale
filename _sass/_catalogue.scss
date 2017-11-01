@@ -17,13 +17,15 @@
   &-time {
     color: $color-primary;
     letter-spacing: .5px;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-family: $font-date;
+    color: $color-date;
   }
 
   &-title {
     display: block;
     font-family: $font-sans;
+    color: $color-title;
     font-size: 2rem;
     font-weight: 700;
     margin: .5rem 0;

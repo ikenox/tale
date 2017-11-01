@@ -2,6 +2,7 @@ $color-primary: #0a0a0a;
 $color-grey: #e5e5e5;
 $color-grey2: #979797;
 $color-grey3: #555555;
+$color-grey4: #333333;
 $color-white: #fff;
 $color-shadow: rgba(0, 0, 0, 2);
 $color-red: #bf616a;
@@ -13,12 +14,14 @@ $color-subtext: $color-grey2;
 $color-code-background: #bf616a;
 $color-hline: $color-grey;
 $color-link: $color-primary;
+$color-date: $color-primary;
+$color-title: $color-primary;
+$color-nav-link: $color-primary;
 
 $font-sans: 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
 $font-mincho: 'Hiragino Mincho ProN', 'ヒラギノ明朝 Pro W6', 'Hiragino Mincho Pro', 'HGS明朝E', 'ＭＳ Ｐ明朝', serif;
-$font-saira: 'Saira Extra Condensed', sans-serif;
 
-$font-date: $font-saira;
+$font-date: $font-sans;
 
 $monospaced-font: Menlo, Monaco, monospace;
 
