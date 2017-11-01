@@ -11,6 +11,12 @@
         margin: 1rem 0;
         text-align: center;
         font-weight: bold;
+
+        &-en {
+            font-size: 1.5rem;
+            font-family: $font-sans;
+            font-weight: 600;
+        }
     }
 
     &-author-job {

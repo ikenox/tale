@@ -18,13 +18,13 @@ layout: base
     <img class="about-profile-image" src="{{ 'assets/img/profile_photo.jpeg' | absolute_url }}" alt="profile" width="180px"/>
 
     <span class="about-author-name">
-      {{ site.author.name_en }} ({{ site.author.name_ja }})
+      {{ site.author.name_ja }}
+    </span><BR>
+    <span class="about-author-name-en">
+    {{ site.author.name_en }}
     </span>
     <br>
-    <span class="about-author-job">
-      {{ site.author.job }}
-    </span>
-    <br><br>
+    <br>
 
       Github: <a href="https://github.com/{{ site.accounts.github }}" target="_blank">@{{ site.accounts.github }}</a><br>
       Twitter: <a href="https://twitter.com/{{ site.accounts.twitter }}" target="_blank">@{{ site.accounts.twitter }}</a>
