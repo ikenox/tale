@@ -1,6 +1,6 @@
 .pagination {
-  border-top: .5px solid $color-primary;
-  font-family: $font-sans;
+  @include pagination();
+  border-top: .5px solid $color-border;
   padding-top: 2rem;
   position: relative;
   text-align: center;
@@ -12,7 +12,6 @@
 
   .top {
     @include transition(all .3s ease-out);
-    font-family: $font-sans;
     font-size: 1.1rem;
 
     &:hover {

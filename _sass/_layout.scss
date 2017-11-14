@@ -12,11 +12,11 @@ main,
 }
 
 .nav {
-  border-bottom: 1px solid $color-primary;
   overflow: auto;
+  text-transform: uppercase;
 
   &-container {
-    margin: 1rem auto;
+    margin: 1.5rem auto;
     position: relative;
     text-align: center;
   }
@@ -25,8 +25,12 @@ main,
     @include transition(all .2s ease-out);
     display: inline-block;
     margin: 0;
+    font-size: 1.3em;
     padding-right: .2rem;
     color: $color-title;
+    font-family: $font-montserrat;
+    font-weight: 300;
+    letter-spacing: 0.2em;
 
     &:hover,
     &:focus {
@@ -43,8 +47,9 @@ main,
 
   li {
     @include transition(all .2s ease-out);
+    letter-spacing: 0.2em;
     display: inline-block;
-    padding: 0 2rem 0 0;
+    padding: 0 2rem 00;
 
     &:last-child {
       padding-right: 0;
@@ -57,7 +62,7 @@ main,
   }
 
   a {
-    font-family: $font-date;
+    font-family: $font-montserrat;
     color: $color-nav-link;
   }
 }
@@ -82,7 +87,7 @@ footer {
   height: $footer-height;
   bottom: 0;
   position: absolute;
-  border-top: 1px solid $color-primary;
+  background: $color-grey0;
 
   span {
     color: $color-primary;

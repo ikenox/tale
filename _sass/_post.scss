@@ -4,11 +4,9 @@
   font-size: 14pt;
 
   &-info {
-    font-family: $font-date;
-    letter-spacing: .5px;
+    @include date();
     text-align: center;
     font-size: 1.2rem;
-    color: $color-date;
 
     span {
       font-style: italic;
