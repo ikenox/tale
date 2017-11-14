@@ -34,4 +34,8 @@
     display: block;
     width: 2rem;
   }
+
+  p {
+    @include text(12pt);
+  }
 }

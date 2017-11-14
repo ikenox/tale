@@ -1,7 +1,6 @@
 .post {
 
   padding: 3rem 0;
-  font-size: 14pt;
 
   &-info {
     @include date();
@@ -10,6 +9,14 @@
 
     span {
       font-style: italic;
+    }
+  }
+
+  &-content {
+    @include text();
+    padding: {
+      top: 2rem;
+      bottom: 2rem;
     }
   }
 
@@ -31,11 +38,6 @@
   p {
     margin: 0 0 1rem;
     text-align: justify;
-  }
-
-  a {
-    color: $color-link;
-    text-decoration: underline;
   }
 
   .share-buttons {

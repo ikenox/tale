@@ -6,10 +6,6 @@
   text-align: center;
   padding-bottom: 2rem;
 
-  span {
-    font-size: 1.1rem;
-  }
-
   .top {
     @include transition(all .3s ease-out);
     font-size: 1.1rem;

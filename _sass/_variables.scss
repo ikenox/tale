@@ -52,8 +52,15 @@ $footer-height: 100px;
 }
 
 @mixin pagination {
+    font-size: 1em;
     font-family: $font-montserrat;
     text-transform: uppercase;
     letter-spacing: .15em;
     color: $color-primary;
+}
+
+@mixin text($font-size: 14pt) {
+  font-family: $font-text;
+  font-size: $font-size;
+  line-height: 1.8em;
 }
