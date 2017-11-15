@@ -20,11 +20,8 @@
   }
 
   &-title {
+    @include title();
     display: block;
-    font-family: $font-sans;
-    color: $color-title;
-    font-size: 2rem;
-    font-weight: 700;
     margin: .5rem 0;
   }
 
@@ -36,6 +33,7 @@
   }
 
   p {
+
     @include text(12pt);
   }
 }

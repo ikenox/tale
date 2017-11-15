@@ -27,9 +27,7 @@
   }
 
   &-title {
-    font-family: $font-sans;
-    font-size: 3rem;
-    color: $color-title;
+    @include title(3rem);
     margin: 1rem 0;
     text-align: center;
   }
