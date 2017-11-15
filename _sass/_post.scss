@@ -18,6 +18,12 @@
       top: 2rem;
       bottom: 2rem;
     }
+
+    a {
+      text-decoration: underline;
+      color: inherit;
+    }
+
   }
 
   &-title {
@@ -49,11 +55,11 @@
   }
 
   .fb_iframe_widget > span {
-	vertical-align: baseline !important;
+    vertical-align: baseline !important;
   }
 
   .pocket-btn > iframe {
-      height:20px;
+    height:20px;
   }
 
 }
