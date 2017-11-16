@@ -41,7 +41,6 @@
   &-profile {
     @include text();
     @include flex();
-    border-top: 1px solid $color-primary;
     padding: 1rem 0;
 
     &-info {
