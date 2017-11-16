@@ -59,7 +59,7 @@ $footer-height: 100px;
     color: $color-primary;
 }
 
-@mixin text($font-size: 14pt) {
+@mixin text($font-size: 13pt) {
   font-family: $font-text;
   font-size: $font-size;
   line-height: 1.8em;
@@ -73,4 +73,12 @@ $footer-height: 100px;
   font-weight: 700;
   font-family: $font-text;
   color: $color-title;
+}
+
+@mixin flex {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
 }

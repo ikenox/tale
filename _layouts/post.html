@@ -5,8 +5,8 @@ layout: base
 <div class="post">
   <div class="post-info">
     {% if page.date %}
-      <br>
-      <time datetime="{{ page.date }}">{{ page.date | date: "%B %e, %Y" }}</time>
+    <br>
+    <time datetime="{{ page.date }}">{{ page.date | date: "%B %e, %Y" }}</time>
     {% endif %}
   </div>
 
@@ -27,14 +27,33 @@ layout: base
     {{ content }}
   </div>
 
-<div class="pagination">
-  {% if page.next.url %}
+  <div class="post-profile">
+    <div>
+      <a href="/about">
+      <img class="about-profile-image" src="{{ 'assets/img/profile_photo.jpeg' | absolute_url }}" alt="profile" width="80px"/>
+    </a>
+    </div>
+    <div class="post-profile-info">
+      <a href="/about" class="post-profile-name-en">
+      {{ site.author.name_en }}
+    </a><br>
+      <a href="/about" class="post-profile-name-ja">
+      {{ site.author.name_ja }}
+    </a><br>
+      <a href="/about" class="post-profile-job">
+      {{ site.author.job }}
+    </a>
+    </div>
+  </div>
+
+  <div class="pagination">
+    {% if page.next.url %}
     <a href="{{ page.next.url | prepend: site.baseurl }}" class="left arrow">Previous</a>
-  {% endif %}
-  {% if page.previous.url %}
+    {% endif %}
+    {% if page.previous.url %}
     <a href="{{ page.previous.url | prepend: site.baseurl }}" class="right arrow">Next</a>
-  {% endif %}
-  <a href="/" class="top">Top</a>
-</div>
+    {% endif %}
+    <a href="/" class="top">Top</a>
+  </div>
 
 </div>

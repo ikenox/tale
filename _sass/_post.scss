@@ -1,5 +1,4 @@
 .post {
-
   padding: 3rem 0;
 
   &-info {
@@ -37,6 +36,42 @@
     display: block;
     margin: 0 auto 3rem;
     width: 4rem;
+  }
+
+  &-profile {
+    @include text();
+    @include flex();
+    border-top: 1px solid $color-primary;
+    padding: 1rem 0;
+
+    &-info {
+    padding: 0;
+    line-height: 1.4em;
+    margin: auto 0;
+    }
+
+    p {
+      margin: auto;
+    }
+
+    img {
+      margin-right: .75rem;
+      margin-bottom: 0;
+    }
+        font-size: 12pt;
+
+    &-name{
+      &-en{
+        font-family: $font-montserrat;
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: 15pt;
+      }
+    }
+
+    &-job{
+    }
+
   }
 
   p {
