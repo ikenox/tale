@@ -1,4 +1,12 @@
 .catalogue {
+
+    a {
+      &:hover,
+      &:focus {
+        opacity: 1;
+      }
+    }
+
   &-item {
     border-bottom: 1px solid $color-border;
     display: inline-block;
@@ -33,7 +41,6 @@
   }
 
   p {
-
     @include text(12pt);
   }
 }

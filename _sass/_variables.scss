@@ -82,3 +82,11 @@ $footer-height: 100px;
     display: -o-flex;
     display: flex;
 }
+
+@mixin link-transition {
+    @include transition(all .2s ease-out);
+    &:hover,
+    &:focus {
+      opacity: .6;
+    }
+}
