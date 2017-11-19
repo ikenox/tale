@@ -16,11 +16,12 @@ permalink: /about/
 - Python
 - Perl
 - SQL
+- (Ruby, Java)
 
 ### Frontend
 
 - Android
-- (HTML, CSS)
+- (JavaScript, TypeScript, C#, HTML, CSS)
 
 ## Interests
 
@@ -29,5 +30,5 @@ permalink: /about/
 
 ## Contact
 
-- ikenox[at]gmail.com
-- Twitter: [ @{{site.accounts.twitter}} ]( https://twitter.com/{{site.accounts.twitter}} )
+- <i class="fa fa-envelope" aria-hidden="true"></i> ikenox[at]gmail.com
+- <i class="fa fa-twitter" aria-hidden="true"></i> [ @{{site.accounts.twitter}} ]( https://twitter.com/{{site.accounts.twitter}} )

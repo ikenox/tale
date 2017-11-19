@@ -7,13 +7,13 @@
 
     &-author-name {
         font-family: $font-sans;
-        font-size: 2rem;
+        font-size: 1.5rem;
         margin: 1rem 0;
         text-align: center;
         font-weight: bold;
 
         &-en {
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-family: $font-sans;
             font-weight: 600;
         }
@@ -25,5 +25,12 @@
         font-size: 1rem;
         margin: 1rem 0;
         text-align: center;
+    }
+
+    &-social-accounts {
+      text-align: left;
+      i {
+        font-size: 1.5rem;
+      }
     }
 }
