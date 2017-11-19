@@ -44,9 +44,9 @@
     padding: 1rem 0;
 
     &-info {
-    padding: 0;
-    line-height: 1.4em;
-    margin: auto 0;
+      padding: 0;
+      line-height: 1.4em;
+      margin: auto 0;
     }
 
     p {
@@ -57,7 +57,7 @@
       margin-right: .75rem;
       margin-bottom: 0;
     }
-        font-size: 12pt;
+    font-size: 12pt;
 
     &-name{
       &-en{
@@ -84,6 +84,35 @@
     div {
       display: inline-block;
     }
+
+    .social-button {
+
+      line-height: 2.8rem;
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+      width: 3rem;
+      height: 3rem;
+      -webkit-border-radius: 1.5rem;
+      -moz-border-radius: 1.5rem;
+      border-radius: 1.5rem;
+      border: 1px solid $color-primary;
+      font-size: 1.5rem;
+
+      .fa-hatena::before {
+        content: "B!";
+        font-family: Verdana;
+        font-weight: bold;
+      }
+
+      &:hover {
+        background: $color-primary;
+        i {
+          color: $color-white;
+        }
+      }
+
+    }
+
   }
 
   .fb_iframe_widget > span {

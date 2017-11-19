@@ -14,6 +14,33 @@ layout: base
   <div class="post-line"></div>
 
   <div class="share-buttons">
+    <a href="http://twitter.com/share?url={{ site.url }}{{ page.url }}&text={{ page.title }} - {{site.title }}" onclick="window.open(this.href, 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1'); return false;">
+      <div class="social-button">
+        <i class="fa fa-twitter" aria-hidden="true"></i>
+      </div>
+    </a>
+    <a href="http://www.facebook.com/share.php?u={{ site.url }}{{ page.url }}" onclick="window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;">
+      <div class="social-button">
+        <i class="fa fa-facebook" aria-hidden="true"></i>
+      </div>
+    </a>
+    <a href="http://b.hatena.ne.jp/add?mode=confirm&url={{ site.url }}{{ page.url }}&title={{ page.title }} - {{site.title }}" target="_blank">
+      <div class="social-button">
+        <i class="fa fa-hatena" aria-hidden="true"></i>
+      </div>
+    </a>
+    <a href="http://getpocket.com/edit?{{ site.url }}{{ page.url }}&title={{ page.title }} - {{site.title }}" onclick="window.open(this.href, 'FBwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;">
+      <div class="social-button">
+        <i class="fa fa-get-pocket" aria-hidden="true"></i>
+      </div>
+    </a>
+    <a href="https://plus.google.com/share?url={{ site.url }}{{ page.url }}" rel="nofollow" target="_blank">
+    <div class="social-button">
+      <i class="fa fa-google-plus" aria-hidden="true"></i>
+    </div>
+  </a>
+
+    <!--
     <a href="https://twitter.com/share" class="twitter-share-button"></a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
     <div class="fb-share-button" data-href="{{ site.url }}{{ page.url }}" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fikenox.info%2F&amp;src=sdkpreparse"></a></div>
@@ -21,39 +48,40 @@ layout: base
     <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="basic-label-counter" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
 
     <a data-pocket-label="pocket" data-pocket-count="horizontal" class="pocket-btn" data-lang="en"></a><script type="text/javascript">!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
-  </div>
+  -->
+</div>
 
-  <div class="post-content">
-    {{ content }}
-  </div>
+<div class="post-content">
+  {{ content }}
+</div>
 
-  <div class="post-profile">
-    <div>
-      <a href="/about">
+<div class="post-profile">
+  <div>
+    <a href="/about">
       <img class="about-profile-image" src="{{ 'assets/img/profile_photo.jpeg' | absolute_url }}" alt="profile" width="80px"/>
     </a>
-    </div>
-    <div class="post-profile-info">
-      <a href="/about" class="post-profile-name-en">
+  </div>
+  <div class="post-profile-info">
+    <a href="/about" class="post-profile-name-en">
       {{ site.author.name_en }}
     </a><br>
-      <a href="/about" class="post-profile-name-ja">
+    <a href="/about" class="post-profile-name-ja">
       {{ site.author.name_ja }}
     </a><br>
-      <a href="/about" class="post-profile-job">
+    <a href="/about" class="post-profile-job">
       {{ site.author.job }}
     </a>
-    </div>
   </div>
+</div>
 
-  <div class="pagination">
-    {% if page.next.url %}
-    <a href="{{ page.next.url | prepend: site.baseurl }}" class="left arrow">Previous</a>
-    {% endif %}
-    {% if page.previous.url %}
-    <a href="{{ page.previous.url | prepend: site.baseurl }}" class="right arrow">Next</a>
-    {% endif %}
-    <a href="/" class="top">Top</a>
-  </div>
+<div class="pagination">
+  {% if page.next.url %}
+  <a href="{{ page.next.url | prepend: site.baseurl }}" class="left arrow">Previous</a>
+  {% endif %}
+  {% if page.previous.url %}
+  <a href="{{ page.previous.url | prepend: site.baseurl }}" class="right arrow">Next</a>
+  {% endif %}
+  <a href="/" class="top">Top</a>
+</div>
 
 </div>
