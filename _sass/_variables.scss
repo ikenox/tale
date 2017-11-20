@@ -62,7 +62,10 @@ $footer-height: 100px;
 @mixin text($font-size: 13pt) {
   font-family: $font-text;
   font-size: $font-size;
-  line-height: 1.8em;
+  line-height: 1.6em;
+  @media (min-width: 600px) {
+    line-height: 1.8em;
+  }
   font-weight: lighter;
   color: $color-primary;
   -webkit-font-smoothing:antialiased;

@@ -1,5 +1,8 @@
 .post {
   padding: 3rem 0;
+  @media (max-width: 600px) {
+    padding: 1.5rem 0;
+  }
 
   &-info {
     @include date();
@@ -27,6 +30,9 @@
 
   &-title {
     @include title(3rem);
+    @media (max-width: 600px) {
+      font-size:2rem;
+    }
     margin: 1rem 0;
     text-align: center;
   }
@@ -36,6 +42,9 @@
     display: block;
     margin: 0 auto 3rem;
     width: 4rem;
+    @media (max-width: 600px) {
+    border-top: .3rem solid $color-primary;
+    }
   }
 
   &-profile {
@@ -56,6 +65,7 @@
     img {
       margin-right: .75rem;
       margin-bottom: 0;
+      width: 5rem;
     }
     font-size: 12pt;
 
