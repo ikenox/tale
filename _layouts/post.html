@@ -17,36 +17,36 @@ layout: base
   <div class="share-buttons">
     <a href="http://twitter.com/share?url={{ site.url }}{{ page.url }}&text={{ page.title }} - {{site.title }}" onclick="window.open(this.href, 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1'); return false;">
       <div class="social-button">
-        <i class="fa fa-twitter" aria-hidden="true"></i>
+        <i class="fa fa-twitter" aria-hidden="true"></i><br>
+        <span class="social-count-twitter">&nbsp;</span>
       </div>
     </a>
     <a href="http://www.facebook.com/share.php?u={{ site.url }}{{ page.url }}" onclick="window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;">
       <div class="social-button">
         <i class="fa fa-facebook" aria-hidden="true"></i><br>
-        <span class="social-count-facebook"> </span>
+        <span class="social-count-facebook">&nbsp;</span>
       </div>
     </a>
     <a href="http://b.hatena.ne.jp/add?mode=confirm&url={{ site.url }}{{ page.url }}&title={{ page.title }} - {{site.title }}" target="_blank">
       <div class="social-button">
         <i class="fa fa-hatena" aria-hidden="true"></i><br>
-        <span class="social-count-hatena"> </span>
+        <span class="social-count-hatena">&nbsp;</span>
       </div>
     </a>
+    <!--
     <a href="http://getpocket.com/edit?{{ site.url }}{{ page.url }}&title={{ page.title }} - {{site.title }}" onclick="window.open(this.href, 'FBwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;">
       <div class="social-button">
-        <i class="fa fa-get-pocket" aria-hidden="true"></i>
+        <i class="fa fa-get-pocket" aria-hidden="true"></i><br>
+        <span class="social-count-pocket">&nbsp;</span>
       </div>
     </a>
     <a href="https://plus.google.com/share?url={{ site.url }}{{ page.url }}" rel="nofollow" target="_blank">
       <div class="social-button">
-        <i class="fa fa-google-plus" aria-hidden="true"></i>
+        <i class="fa fa-google-plus" aria-hidden="true"></i><br>
+        <span class="social-count-google-plus">&nbsp;</span>
       </div>
     </a>
-
-    <div class="social-count-tweet">
-      <p class="cb-hb"><span></span></p>
-      <p class="cb-fb"><span></span></p>
-    </div>
+  -->
 
     <!--
     <a href="https://twitter.com/share" class="twitter-share-button"></a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
@@ -104,10 +104,9 @@ var hatenaCountCallback = function(count){
 $.get("http://graph.facebook.com/?id={{ page.url | absolute_url | url_encode }}",
   null,
   function(data){
-    console.log(data);
     $('.social-count-facebook').html(data.share.share_count);
   });
 
-// pocket
+// twitter
 </script>
 <script type="text/javascript" src="http://api.b.st-hatena.com/entry.count?url={{ page.url | absolute_url | url_encode }}&callback=hatenaCountCallback"></script>
