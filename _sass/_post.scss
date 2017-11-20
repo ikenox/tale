@@ -84,12 +84,14 @@
     div {
       display: inline-block;
     }
-    
+
       a {
-    &:hover,
-    &:focus {
-      opacity: 1;
-    }
+        @include disable-link-transition;
+      }
+
+      [class^="social-count-"]{
+         font-family: $font-montserrat;
+         font-size: 1rem;
       }
 
     .social-button {
