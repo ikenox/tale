@@ -1,10 +1,7 @@
 .catalogue {
 
     a {
-      &:hover,
-      &:focus {
-        opacity: 1;
-      }
+      @include disable-link-transition;
     }
 
   &-item {

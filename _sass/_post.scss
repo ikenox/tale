@@ -84,12 +84,9 @@
     div {
       display: inline-block;
     }
-    
+
       a {
-    &:hover,
-    &:focus {
-      opacity: 1;
-    }
+        @include disable-link-transition;
       }
 
     .social-button {
