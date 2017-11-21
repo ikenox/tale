@@ -15,19 +15,19 @@ layout: base
 
 
   <div class="share-buttons">
-    <a href="http://twitter.com/share?url={{ site.url }}{{ page.url }}&text={{ page.title }} - {{site.title }}" onclick="window.open(this.href, 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1'); return false;">
+    <a href="http://twitter.com/share?url={{ page.url | absolute_url | url_encode }}&text={{ page.title }} - {{site.title }}" onclick="window.open(this.href, 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1'); return false;">
       <div class="social-button">
         <i class="fa fa-twitter" aria-hidden="true"></i><br>
         <span class="social-count-twitter">&nbsp;</span>
       </div>
     </a>
-    <a href="http://www.facebook.com/share.php?u={{ site.url }}{{ page.url }}" onclick="window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;">
+    <a href="http://www.facebook.com/share.php?u={{ page.url | absolute_url | url_encode }}" onclick="window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;">
       <div class="social-button">
         <i class="fa fa-facebook" aria-hidden="true"></i><br>
         <span class="social-count-facebook">&nbsp;</span>
       </div>
     </a>
-    <a href="http://b.hatena.ne.jp/add?mode=confirm&url={{ site.url }}{{ page.url }}&title={{ page.title }} - {{site.title }}" target="_blank">
+    <a href="http://b.hatena.ne.jp/add?mode=confirm&url={{ page.url | absolute_url | url_encode }}&title={{ page.title }} - {{site.title }}" target="_blank">
       <div class="social-button">
         <i class="fa fa-hatena" aria-hidden="true"></i><br>
         <span class="social-count-hatena">&nbsp;</span>
@@ -101,7 +101,7 @@ var hatenaCountCallback = function(count){
 }
 
 // facebook
-$.get("http://graph.facebook.com/?id={{ page.url | absolute_url | url_encode }}",
+$.get("https://graph.facebook.com/?id={{ page.url | absolute_url | url_encode }}",
   null,
   function(data){
     $('.social-count-facebook').html(data.share.share_count);
@@ -109,4 +109,4 @@ $.get("http://graph.facebook.com/?id={{ page.url | absolute_url | url_encode }}"
 
 // pocket
 </script>
-<script type="text/javascript" src="http://api.b.st-hatena.com/entry.count?url={{ page.url | absolute_url | url_encode }}&callback=hatenaCountCallback"></script>
+<script type="text/javascript" src="https://b.hatena.ne.jp/entry.count?url={{ page.url | absolute_url | url_encode }}&callback=hatenaCountCallback"></script>
