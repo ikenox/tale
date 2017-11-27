@@ -4,6 +4,10 @@
   width: 90%;
 }
 
+main {
+  border-top: 1px solid $color-primary;
+}
+
 main,
 .nav-container {
   margin: 0 auto;
