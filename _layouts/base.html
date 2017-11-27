@@ -19,9 +19,14 @@
         <a href="{{ site.baseurl }}/">
           <h2 class="nav-title">{{ site.title }}</h2>
         </a>
-        <ul>
-          <li><a href="{{ '/about' | prepend: site.baseurl }}">ABOUT</a></li>
+        <ul class="nav-links-pc">
           <li><a href="{{ site.baseurl }}/">POSTS</a></li>
+          <li><a href="{{ '/about' | prepend: site.baseurl }}">ABOUT</a></li>
+          <li><a href="{{ site.baseurl }}/feed.xml" target="_blank"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+        </ul>
+        <ul class="nav-links-sp">
+          <li><a href="{{ site.baseurl }}/"><i class="fa fa-file-text-o" aria-hidden="true"></i></a></li>
+          <li><a href="{{ '/about' | prepend: site.baseurl }}"><i class="fa fa-user" aria-hidden="true"></i></a></li>
           <li><a href="{{ site.baseurl }}/feed.xml" target="_blank"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
         </ul>
     </div>

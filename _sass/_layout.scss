@@ -32,6 +32,25 @@ main,
     letter-spacing: 0.2em;
   }
 
+  &-links {
+    &-pc {
+      visibility: visible;
+    }
+    &-sp {
+      visibility: hidden;
+    }
+  }
+  @media (max-width: 600px) {
+    &-links {
+      &-pc {
+        visibility: hidden;
+      }
+      &-sp {
+        visibility: visible;
+      }
+    }
+  }
+
   ul {
     list-style-type: none;
     margin: 1rem 0 0;
@@ -43,7 +62,7 @@ main,
   li {
     letter-spacing: 0.2em;
     display: inline-block;
-    padding: 0 1rem 00;
+    padding: 0 1rem 0 0;
     vertical-align: middle;
 
     &:last-child {
@@ -52,6 +71,10 @@ main,
 
     i {
       font-size:1.5rem;
+    }
+
+    @media (max-width: 600px) {
+      padding: 0 1rem 0 0;
     }
   }
 
