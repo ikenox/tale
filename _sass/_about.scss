@@ -28,13 +28,18 @@
     }
 
     &-social-accounts {
-      text-align: left;
+      display: table-cell;
+      text-align: center;
       i {
+        vertical-align: middle;
         margin-right: 0.2rem;
         font-size: 1.7rem;
         @media (max-width: 600px) {
           font-size:2rem;
         }
+      }
+      a {
+        vertical-align: middle;
       }
     }
 }
