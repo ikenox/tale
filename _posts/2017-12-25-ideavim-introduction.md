@@ -3,6 +3,7 @@ layout: post
 title: IntelliJ(Android Studio)のVimプラグイン「IdeaVim」の使い方と設定
 ---
 
+
 # IdeaVimとは
 
 - [IdeaVim](https://plugins.jetbrains.com/plugin/164-ideavim)  
@@ -72,7 +73,7 @@ IdeaVimでは、`.ideavimrc`というファイルに設定を記述してホー�
 
 上記の`.ideavimrc`を見てもらうと、`nnoremap xxx :action yyy`という記述が多くあることがわかります。  
 IdeaVimでは`:action`コマンドで **IntelliJの機能(Action)を呼び出して使用することができます**。  
-カーソルの移動から高度な機能まで、IntelliJがAPIとして提供しているActionや、インストールしているプラグインで定義されているActionは全て呼び出せるようです。**IntelliJの強力なコードジャンプやリファクタ機能についても、Vimのキーマップ的な設定・呼び出しが可能ということになります**。  
+カーソルの移動など単純な操作からもっと高次な機能まで、IntelliJがAPIとして提供しているActionや、インストールしているプラグインで定義されているActionは全て呼び出せるようです。**IntelliJの強力なコードジャンプやリファクタ機能についても、Vimのキーマップ的な設定・呼び出しが可能ということになります**。  
 このAction呼び出し機能により、IdeaVimとIntelliJの連携の自由度が格段に上がります。    
 
 ### 設定しておくと幸せになれそうなActionの一例
@@ -106,7 +107,7 @@ nnoremap == :action ReformatCode<CR>
 vnoremap <Space>a :action GotoAction<CR>
 ```
 
-次のリリースで、ビジュアルモード中の範囲選択に対して`:action`コマンドを適用できるようになる予定です。  
+次のリリースで、ビジュアルモード中の範囲選択に対しても`:action`コマンドを適用できるようになる予定です。  
 バージョン0.49.2のEAP buildにて既に利用可能なため、上記の設定例にも入れ込んでみました。  
 ただ、ビジュアルモード内での`ReformatCode`についてはバグがありまだ動きません [^action-bug]
 
@@ -120,10 +121,14 @@ vnoremap <Space>a :action GotoAction<CR>
 
 # その他
 
+## EAP build
+
 IdeaVimのアップデート頻度は年に数回程度と、そこまで高くはありません。  
-IntelliJ内から`[Settings] > [Plugins] > [Browse Repositories] > [Manage Repositories]`に下記のURLを追加することで、まだ正式にはリリースされていないEAP(Eary Access Program) buildのIdeaVimを利用することができます。  
-`https://plugins.jetbrains.com/plugins/eap/ideavim`  
+IntelliJ内から`[Settings] > [Plugins] > [Browse Repositories] > [Manage Repositories]`に下記のURLを追加することで、まだ正式にはリリースされていないEAP[^eap] buildのIdeaVimを利用することができます。  
+[https://plugins.jetbrains.com/plugins/eap/ideavim](https://plugins.jetbrains.com/plugins/eap/ideavim)  
 重大なバグがEAP buildでは治っているみたいなケースも少なくないため、基本入れておいて損はないと思います。
+
+[^eap]: Early Access Program
 
 # おわりに
 
