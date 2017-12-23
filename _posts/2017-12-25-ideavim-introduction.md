@@ -5,12 +5,13 @@ title: IntelliJ(Android Studio)のVimプラグイン「IdeaVim」の使い方
 
 # IdeaVimとは
 
- [IdeaVim](https://plugins.jetbrains.com/plugin/164-ideavim)  
+- [IdeaVim](https://plugins.jetbrains.com/plugin/164-ideavim)  
+- Github: [JetBrains/ideavim](https://github.com/JetBrains/ideavim)
 
 IdeaVimは、**IntelliJやAndroid StudioなどのJetBrains系列のIDEで使えるVimプラグイン** です。このプラグインを導入することでIntelliJなどをVimっぽく操作できるようになります。  
-Githubのリポジトリ([JetBrains/ideavim](https://github.com/JetBrains/ideavim))を見てもらうとわかる通り、JetBrainsの公式プラグインです。(IntelliJの初回起動時にもちゃっかりオススメされます)
+リポジトリ名を見るとわかるように、JetBrainsの公式プラグインです。IntelliJの初回起動時にもオススメされます。
 
-※ 以下、IntelliJを例にして進めますが、JetBrains系列のIDEであれば基本的に一緒なはずですので自身の使っているものに置き換えてお読みください
+※ 以下、IntelliJを例にして進めますが、JetBrains系列のIDEであれば基本的に一緒なはずですので自身の使っているものに置き換えてお読みください。
 
 ## なぜIdeaVimを使うか
 
@@ -30,7 +31,7 @@ Githubのリポジトリ([JetBrains/ideavim](https://github.com/JetBrains/ideavi
 |機能|対応状況|
 |:-------|:---|
 |モード|ノーマルモード、インサートモード、ビジュアルモードが存在|
-|モーション|ヤンク(`y`), 削除(`d`), 変更(`c`), Undo(`u`), Redo(`Ctrl-r`),<br>テキストオブジェクト操作(`ciw`,`vi(`, ...) ... などなど<br>(行いたい操作が未実装だったという経験は筆者はあまり無いです)|
+|モーション|ヤンク(`y`), 削除(`d`), 変更(`c`), Undo(`u`), Redo(`Ctrl-r`),<br>テキストオブジェクト操作(`ciw`,`vi(`, ...) などなど<br>(行いたい操作が未実装だったという経験は筆者は無いです)|
 |検索| Vimと同様に`/`による検索が可能、`:set incsearch`によるインクリメンタルサーチも
 |置換| Vimと同様に`:s`,`:%s`,`:'<,'>s`などで正規表現による置換が可能|
 |コマンド|`:w`,`:q`,`:tabnew`,`:split`,`:vsplit`, 一部`:set`オプション などなど |
@@ -40,7 +41,7 @@ Githubのリポジトリ([JetBrains/ideavim](https://github.com/JetBrains/ideavi
 |その他|`:set surrond`することで[vim-surround](https://github.com/tpope/vim-surround)を再現した機能を利用可能|
 
 <br>
-より詳しく知りたいという方は、Githubのリポジトリ([JetBrains/ideavim](https://github.com/JetBrains/ideavim))のREADMEやソースコードをご覧になってみてください。
+より詳しく知りたいという方は、([Githubリポジトリ](https://github.com/JetBrains/ideavim))のREADMEやソースコードをご覧になってみてください。
 
 # IdeaVimをインストール
 
@@ -105,7 +106,7 @@ nnoremap == :action ReformatCode<CR>
 vnoremap <Space>a :action GotoAction<CR>
 ```
 
-最近になって、ビジュアルモード中の範囲選択に対して`:action`コマンドを適用できるようになりました(バージョン0.49.2のEAP buildにて利用可能です) 。ただ、`ReformatCode`についてはバグでまだ動きません [^action-bug]
+次のリリースで、ビジュアルモード中の範囲選択に対して`:action`コマンドを適用できるようになる予定です(バージョン0.49.2のEAP buildにて既に利用可能です) 。ただ、`ReformatCode`についてはバグがあり動きません [^action-bug]
 
 [^action-bug]: 2017/12/24時点で、[一部のActionがビジュアルモードで動かないバグ](https://github.com/JetBrains/ideavim/pull/135)が存在します
 
