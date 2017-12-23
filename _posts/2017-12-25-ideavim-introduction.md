@@ -1,6 +1,6 @@
 ---
 layout: post
-title: IdeaVimでIntelliJ(Android Studio)をVimっぽく操作しよう
+title: IntelliJ(Android Studio)のVimプラグイン「IdeaVim」の使い方
 ---
 
 # IdeaVimとは
@@ -117,7 +117,7 @@ vnoremap <Space>a :action GotoAction<CR>
 
 # その他
 
-IdeaVimのアップデート頻度はそこまで高くはありません。  
+IdeaVimのアップデート頻度は年に数回程度と、そこまで高くはありません。  
 IntelliJ内から`[Settings] > [Plugins] > [Browse Repositories] > [Manage Repositories]`に下記のURLを追加することで、まだ正式にはリリースされていないEAP(Eary Access Program) buildのIdeaVimを利用することができます。  
 `https://plugins.jetbrains.com/plugins/eap/ideavim`  
 重大なバグがEAP buildでは治っているみたいなケースも少なくないため、基本入れておいて損はないと思います。
