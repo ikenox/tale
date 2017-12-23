@@ -1,5 +1,7 @@
 # Permalinks
 permalink:      /:year-:month-:day/:title
+future: true
+timezone: Asia/Tokyo
 
 # Setup
 title:          ikenox.info
