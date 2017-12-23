@@ -66,7 +66,7 @@ $footer-height: 100px;
   font-weight: lighter;
   color: $color-primary;
   -webkit-font-smoothing:antialiased;
-  word-wrap: break-word;
+  word-wrap: normal;
 }
 
 @mixin title ($font-size: 2rem){

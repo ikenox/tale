@@ -1,6 +1,6 @@
 ---
 layout: post
-title: IntelliJ(Android Studio)のVimプラグイン「IdeaVim」の使い方
+title: IntelliJ(Android Studio)のVimプラグイン「IdeaVim」の使い方と設定
 ---
 
 # IdeaVimとは
@@ -106,7 +106,9 @@ nnoremap == :action ReformatCode<CR>
 vnoremap <Space>a :action GotoAction<CR>
 ```
 
-次のリリースで、ビジュアルモード中の範囲選択に対して`:action`コマンドを適用できるようになる予定です(バージョン0.49.2のEAP buildにて既に利用可能です) 。ただ、`ReformatCode`についてはバグがあり動きません [^action-bug]
+次のリリースで、ビジュアルモード中の範囲選択に対して`:action`コマンドを適用できるようになる予定です。  
+バージョン0.49.2のEAP buildにて既に利用可能なため、上記の設定例にも入れ込んでみました。  
+ただ、ビジュアルモード内での`ReformatCode`についてはバグがありまだ動きません [^action-bug]
 
 [^action-bug]: 2017/12/24時点で、[一部のActionがビジュアルモードで動かないバグ](https://github.com/JetBrains/ideavim/pull/135)が存在します
 
