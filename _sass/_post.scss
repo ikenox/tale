@@ -28,6 +28,7 @@
 
     table {
       border-collapse: collapse;
+      overflow-x: scroll;
     }
 
     table, th, td {
@@ -127,7 +128,6 @@
 
   p {
     margin: 0 0 1rem;
-    text-align: justify;
   }
 
   .share-buttons {
