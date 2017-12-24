@@ -132,33 +132,25 @@
 
   .share-buttons {
     text-align: center;
-    line-height: 1.5rem;
+    line-height: .2rem;
     padding: 20px 0;
     div {
       display: inline-block;
     }
 
-    a {
-      @include disable-link-transition;
-    }
-
     [class^="social-count-"]{
       font-family: $font-montserrat;
-      font-size: 1rem;
+      font-size: 0.8rem;
       line-height: 0rem;
       height:1rem;
     }
 
     .social-button {
-      margin-left: 0.5rem;
-      margin-right: 0.5rem;
-      width: 2.5rem;
-      height: 2.5rem;
+      width:2rem;
       -webkit-border-radius: 1.25rem;
       -moz-border-radius: 1.25rem;
       border-radius: 1.25rem;
-      border: 1px solid $color-primary;
-      font-size: 1.25rem;
+      font-size: 1.5rem;
 
       .fa-hatena::before {
         content: "B!";
@@ -168,13 +160,6 @@
 
       i {
         line-height: 2.38rem;
-      }
-
-      &:hover {
-        background: $color-primary;
-        i {
-          color: $color-white;
-        }
       }
 
     }
