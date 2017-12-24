@@ -3,6 +3,7 @@ layout: post
 title: IntelliJ(Android Studio)のVimプラグイン「IdeaVim」の使い方と設定
 ---
 
+この記事は[JetBrains Advent Calendar 2017](https://qiita.com/advent-calendar/2017/jetbrains)の最終日分の投稿です。前日まで空いていたため、滑り込みで参加させていただきました！
 
 # IdeaVimとは
 
