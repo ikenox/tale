@@ -7,7 +7,7 @@ timezone: Asia/Tokyo
 title:          ikenox.info
 paginate:       5
 baseurl:
-url:            "https://ikenox.github.io"
+url:            "https://ikenox.info"
 
 # Assets
 sass:
