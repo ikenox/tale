@@ -97,6 +97,10 @@ var hatenaCountCallback = function(count){
   $('.social-count-hatena').html(count);
 }
 
+var twitterCountCallback = function(data){
+  $('.social-count-twitter').html(data.count);
+}
+
 // facebook
 $.get("https://graph.facebook.com/?id={{ page.url | absolute_url | url_encode }}",
   null,
@@ -104,12 +108,7 @@ $.get("https://graph.facebook.com/?id={{ page.url | absolute_url | url_encode }}
     $('.social-count-facebook').html(data.share.share_count);
   });
 
-$.get("https://jsoon.digitiminimi.com/twitter/count.json?url={{ page.url | absolute_url | url_encode }}",
-  null,
-  function(data){
-    $('.social-count-twitter').html(data.count);
-  });
-
 // pocket
 </script>
+<script type="text/javascript" src="https://jsoon.digitiminimi.com/twitter/count.json?url={{ page.url | absolute_url | url_encode }}&callback=twitterCountCallback"></script>
 <script type="text/javascript" src="https://b.hatena.ne.jp/entry.count?url={{ page.url | absolute_url | url_encode }}&callback=hatenaCountCallback"></script>
