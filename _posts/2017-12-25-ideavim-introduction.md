@@ -105,7 +105,7 @@ nnoremap <Space>a :action GotoAction<CR>
 nnoremap cc :action CommentByLineComment<CR>
 vnoremap cc :action CommentByLineComment<CR>
 nnoremap == :action ReformatCode<CR>
-vnoremap <Space>a :action GotoAction<CR>
+vnoremap == :action ReformatCode<CR> "注:動かず!
 ```
 
 次のリリースで、ビジュアルモード中の範囲選択に対しても`:action`コマンドを適用できるようになる予定です。  
