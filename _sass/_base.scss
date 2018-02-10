@@ -40,9 +40,12 @@ a {
 }
 
 blockquote {
-  border-left: .25rem solid $color-grey2;
-  color: $color-grey;
+  border-left: .25rem solid $color-grey;
+  font-size: .85em;
+  font-style: italic;
+  color: $color-grey3;
   margin: .8rem 0;
+  line-height: 1.6em;
   padding: .5rem 1rem;
 
   p:last-child {
