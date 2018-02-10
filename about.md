@@ -11,7 +11,11 @@ Graduate School of Information Sciences, Tohoku Univ. (2015 - 2016)
 
 ## Skills
 
-Python, Perl, SQL, Android, (Java, Ruby, JavaScript, TypeScript, C#, HTML, CSS)
+Python, Perl, SQL, Android, Java, (HTML, CSS)
+
+## Interests
+
+- Software architecture design
 
 ## Contact
 
