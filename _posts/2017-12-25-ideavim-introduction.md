@@ -40,7 +40,7 @@ IdeaVimは、**IntelliJやAndroid StudioなどのJetBrains系列のIDEで使え�
 |設定・キーマップ|`.vimrc`と同様の文法で各種`map`や一部`set`オプションを`.ideavimrc`に記述可能<br>また、IntelliJの機能をキーマッピングすることも可能(後の章で詳しく説明)|
 |マクロ|利用可能|
 |レジスタ|利用可能|
-|その他|`:set surrond`することで[vim-surround](https://github.com/tpope/vim-surround)を再現した機能を利用可能|
+|その他|`:set surround`することで[vim-surround](https://github.com/tpope/vim-surround)を再現した機能を利用可能|
 
 <br>
 より詳しく知りたいという方は、[Githubリポジトリ](https://github.com/JetBrains/ideavim)のREADMEやソースコードをご覧になってみてください。
