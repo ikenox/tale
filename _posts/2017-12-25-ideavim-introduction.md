@@ -123,7 +123,7 @@ vnoremap == :action ReformatCode<CR>
 IdeaVimのアップデート頻度は年に数回程度と、そこまで高くはありません。  
 IntelliJ内から`[Settings] > [Plugins] > [Browse Repositories] > [Manage Repositories]`に下記のURLを追加することで、まだ正式にはリリースされていないEAP[^eap] buildのIdeaVimを利用することができます。  
 [https://plugins.jetbrains.com/plugins/eap/ideavim](https://plugins.jetbrains.com/plugins/eap/ideavim)  
-重大なバグがEAP buildでは治っているみたいなケースも少なくないため、基本入れておいて損はないと思います。
+不便だと思っていた不具合がEAP buildでは直っているみたいなケースも少なくないため、基本入れておいて損はないと思います。
 
 [^eap]: Early Access Program
 
