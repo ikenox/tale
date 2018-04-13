@@ -5,129 +5,489 @@ title: CleanArchitectureとは
 
 # CleanArchitecture
 
-## ドメイン駆動設計の入門書籍を読んだ
+CleanArchitectureは、ソフトウェアのモダンな設計方針のひとつです。
 
-ドメイン駆動設計の思想と原則を紹介した書籍が、80ページ程度のPDFとして無償で公開されている。
+### 原典のBlog記事(2012年)
+[https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html](https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html)
 
-[Domain Driven Design（ドメイン駆動設計） Quickly 日本語版](https://www.infoq.com/jp/minibooks/domain-driven-design-quickly)
+#### 日本語訳
+ [https://blog.tai2.net/the_clean_architecture.html](https://blog.tai2.net/the_clean_architecture.html)
 
-> この本は、短くすばやく読める要約とDDの原則の紹介です。新しい概念を紹介する事はありません。 DDDとは何なのかについて正確な要約を試みたのがこの本です。
+以下、主に原典のブログ記事をもとにCleanArchitectureの自分の解釈を書いていきます。  
 
-この書籍は、2007年に出版された[Domain-Driven Design Quickly](http://www.lulu.com/shop/floyd-marinescu-and-abel-avram/domain-driven-design-quickly/paperback/product-2117794.html)の和訳版とのこと。タイトルからも分かる通り、ドメイン駆動設計について最低限の基礎を学ぶことができる。10年近く前の書籍ではあるが、ドメイン駆動設計の基礎を学ぶ分には内容も量も良い感じだと思い、全て読みこんでみた。  
-80ページ程度なので読んでる途中で挫折しづらいし、それでいてドメイン駆動設計のエッセンスについてはきちんと理解することができる一冊になっていると思う。このような書籍が無償で公開されているのはありがたい。
+# CleanArchitectureの狙い
 
-## アンチパターンを考える
+CleanArchitectureをうまく使うと、__コアとなるビジネスロジックが、それ以外の要素の影響を受けなくなります__。このことは一般に「関心の分離」と呼ばれることが多いです。  
+関心がきちんと分離できていると、ソフトウェアに変更を加える際にその影響範囲が小さくなる傾向にあります。
 
-そこで今回、上記書籍を読み、そこに書いてあった設計原則について、**「その原則を守らなかった場合、どういった時にヤバいことになるのか」というアンチパターンをひたすら考えてみる** ことにした。
-基本は以下を構成単位としてひたすら羅列していきます。
+#### 例
+1. フレームワーク、ライブラリなどの影響を受けない
+  - もし後から`ライブラリの差し替えやDBの差し替えをしたい`となった際にも、ビジネスロジックのコードに全く変更が不要になる
+1. 永続化ストレージを
+1. ビジネスロジックをUIから分離できる
+  - ビジネスロジックがUIに依存しないようになるので、`webページの表示(HTML)とjsonの返却(API)で同じビジネスロジックを使える` といったことを無理なく実現できる
+1. テスト可能にすなる
 
-```
-- アンチパターン例
-- ドメイン駆動設計のどの原則に反しているか
-- そのアンチパターンだとどういった時に困るのか
-  - どういうコードが増えるか
-```
+## CleanArchitectureのルール
 
-## なぜアンチパターンか
+CleanArchitectureでは以下の2つのルールによって、前述した「関心の分離」を実現します。
 
-この書籍に限らず、自分がこういった設計手法関連の書籍を読んだ時にありがちなこととして、**この原則を守った方が確かにきれいな設計になりそう」なことは間違いなく理解できる**けど、**「この原則を守らなかった時、具体的にはどのようなヤバいことが起きるのか？」というのをすぐには想像できない**ことが多く、本書籍についても同様の状態となってしまった。(Evans本を途中で挫折してしまうのもそういう難しさがあるからではないか？)  
-設計原則やその所以についての説明というのはどうしても抽象的な話になってしまうがために、一定仕方ないのかなとも思っている。
+1. __ソフトウェアをいくつかのレイヤに分ける__
+  - 基本は4層
+    - Enterprise Business Rules
+    - Application Business Rules
+    - Interface Adapters
+    - Frameworks & Drivers
+  - 内側に行くほど抽象的・普遍的なものを扱う
 
-思い返してみると、普段の仕事の開発でも、**「この設計だと○○の原則を守ってなくてなんだかヤバい匂いがするが、具体的にどういった時にマズいことになりそうなのかうまく言語化できない」** という体験がしばしばある。「○○の原則を守ってないのでダメ！」というだけだといまいち説得力が足りないので、こういった時すぐに具体例が出せると、納得感を伴った上で設計方針の軌道修正ができそうである。
+1. __依存を単一方向にする( 外側 ⇒ 内側 )__
+  - 内側から外側に言及してはいけない
 
-webサービスの開発現場のようにスピード感が求められる場合においては、ドメイン駆動設計のような設計指針を厳守するというのは難しく、しばしば実装コストとトレードオフになる。  
-設計の綺麗さと実装コストとのトレードオフを考える時、「これだとこういう変更が入った時にヤバい」という言語化ができると、自分の持っている危機感をよりハッキリとした輪郭でチームメンバーと共有できる。  
-そうすると、「そういう変更が入る」ことがどれくらい実際に起こりうることなのかや、そのヤバさの程度がどれくらいなのかを加味した上で、設計とスピードのどちらを優先するかについて適切な判断が下せるようになるのではないか。
+#### クリーンアーキテクチャでググるととりあえず出てくる図
 
-# ドメイン駆動設計の原則と、そのアンチパターン集
+![](https://8thlight.com/blog/assets/posts/2012-08-13-the-clean-architecture/CleanArchitecture.jpg)
+- DBが一番外？
+- DBとUIが一緒の層？
+- Entity? UseCase? Enterprise Business Rules?
+- 右下の図なに？
 
-## ドメインモデルに
 
-### 共通概念の属性群は切り出すべき
+## CleanArchitectureのメリット
 
-- userモデルが直接市町村、県、番地を持つよりは、addressモデルに切り出して一括管理した方がいい
-    - 「住所データを消去」のような操作の影響範囲が明確となる
-        - ふやしたときの影響範囲は？？
+- ルールが簡潔かつ抽象的
+    - CleanArchitectureは実装にほとんど言及していない
+    - 実際のプロジェクトに柔軟に適用しやすい
+- 見通しがよくなる
+    - どのクラスがどんな責務を負っているかが明確になる
+    - どこに何を書けばいいかチームでの共通認識を持てる
+- 業務上の関心と技術的関心の分離
+    - ビジネスルールがフレームワーク、UI、DBの永続化手法、ユーザー環境などに依存しなくなる
+        - webとAPIでバリデーションが異なる、とかも自然と防げる
+- テストしやすい
+    - 疎結合になっているので、DBとかを容易にモックに差し替えてテストできる
 
-### バリューオブジェクトは変更されないべき
+# 各レイヤの説明
 
-- 変更されると？
+## Enterprise Business Rules (Entities)
 
-### ステータスコードの扱い
+![](https://8thlight.com/blog/assets/posts/2012-08-13-the-clean-architecture/CleanArchitecture.jpg)
+> Enterprise wide business rules、Business objects of the application
 
-### before
+- 最も抽象的・普遍的なルールや概念を記述する
+  - 関数を持ったdata object(Entity)として定義される
+  - アプリ(Web, API, Ope)によって変わることのない概念を定義する
+    - クルマとは何か？ ⇒ オーナーがいて、モデルと年式があり、…
+    - シェアとは何か？ ⇒ クルマがいて、そのクルマをシェアするドライバーがいて、開始時刻と終了時刻があり、…
+  - EntityのインスタンスがDBのrowに対応することが多い(1台のクルマを表すcarオブジェクト、shareオブジェクト、…)が、必ずしもRDBのテーブルと1対1対応とは限らない
+    - Entityは最も内側の層であり、外界について知らない。データソースはConfigかもしれないしcsvかもしれないしインメモリかもしれない。何にデータが保存されているかはEntityは知らなくていい
+      - DB ⇔ EntityのマッピングはRepositoryの責務(後述)
+      - 「DBに保存する」という処理はUseCaseの責務(後述)
+    - Entityの設計がDBのテーブルスキーマに引っ張られないように気をつける
+  - 最も内側の層なので、外側については何も知らない(理想)
+  - Entity同士のリレーションも保持している(理想)
 
+#### 例
+
+- エニカにおいてクルマとは何か？
+  - 価格が設定できる
+  - 個人のオーナーがいる
+  - CSによる審査結果が紐づく
+  - 複数のシェアが紐づく
+  - 審査通ってて車検証切れてないならシェア可能
+  - シェア可能で、かつ公開状態かつ未削除なら予約リクエスト受け入れ中
+  - ...
 
 ```java
-# ==================
-# HogeController
-# ==================
+class CarEntity{
+  int carId;
 
-$status_code = HogeModel->get_status_code($user_id);
+  Integer price;
+  UserEntity owner;
+  CsCheckEntity csCheck;
+  // ...  
 
-# 審査OKの場合
-if($status_code == 0 || $status_code == 9){
-    # do_something
+  List<ShareEntity> getShares(boolean onlyFinished, ... ){
+    // ...  
+  }
+
+  boolean canShare(DateTime begin, DateTime end){
+    return csCheck.isOk() && !aic.isValid(begin, end);
+  }
+
+  boolean canRequest() {
+    return isPublic() && !isDeleted() && canShare(currentTime, null);
+  }
+
+  // ...  
+}
+```
+
+- 自分自身から辿れるEntity以外について言及する際は、気をつけないと責務の境界が曖昧になりそう
+
+## Application Business Rules (Use Cases)
+
+![](https://8thlight.com/blog/assets/posts/2012-08-13-the-clean-architecture/CleanArchitecture.jpg)
+> application specific business rules
+
+- アプリケーション特有のロジックを記述
+  - 「予約リクエストの作成: 予約リクエストデータを新規作成して永続化して、オーナーにプッシュ通知を送信する。」
+- AnycaではServiceと呼ばれている役割？
+- UseCase層で何をしようが、データの整合性が取れなくなったりすることはないという状態が理想
+- EntityやDBのテーブル名と1:1対応とは限らない
+  - 単一のEntityに属すのはおかしいようなUseCaseも存在する
+     - とあるユーザーがとあるクルマにリクエスト可能かどうかは様々な要因が絡んでくる
+  - ほどよい感じに分割すべき？
+    - ×:CarUseCase, ○:CarEditUseCase, SearchCarUseCase, ...
+- フレームワークやDBがどう変わろうと、この層には影響がない
+
+#### 例
+
+```java
+class RequestUseCase {
+
+  ILogger logger;
+  IRequestRepostiory requestRepostiory;
+
+  void makeRequest(UserEntity driver, CarEntity car) {
+
+    // 予約リクエストデータの新規作成
+    RequestEntity request = new RequestEntity(
+      car,
+      driver,
+      // ...
+    );
+
+    requestRepostiory.save(request); // 内側から外界に作用？
+
+    // プッシュ通知送信
+    pushNotificationUseCase.send(car.owner, "リクエストが届きました");
+
+    logger.log("make_request", request); // 内側から外界に作用？
+  }
+
+  // ...  
+}
+```
+
+# 依存関係逆転の原則
+
+- __Dependency Inversion Principle (DIP, 依存関係逆転の原則)__
+- 内側から外界に作用したい場合はInterface経由で行うことで、依存方向についてのルールを破らないようにする
+    - Repositoryのインターフェースをusecaseと同じ層に作成、usecaseはそのインターフェースに依存するようにする
+    - usecaseの外側の層にて、そのインターフェースを実装したrepositoryの実体を作る
+    - usecaseの実行時に実体を外から渡す (Dependency Injection, DI)
+        - usecase内からは実体は知らない
+
+### UseCaseと同じ層 (インターフェース)
+
+```java
+interface IRequestRepository {
+    void save(RequestEntity request);
+}
+```
+
+### Interface Adapter層 (実装)
+
+```java
+class MySqlRequestRepository implements IRequestRepository {
+    void save(RequestEntity request) {
+        // ...
+        db.execute("INSERT INTO car_data ...");
+        // ...
+    }
+}
+```
+
+### UseCaseの呼び出し例
+
+```java
+RequestUseCase useCase = new RequestUseCase(
+    new MySqlRequestRepository(),
+    new FileLogger(),
+    // ...
+);
+useCase.makeRequest(driver, car);
+
+```
+
+##### DIPすると
+
+- DBとビジネスロジックが自然と疎結合に
+  - UseCaseはDBについての詳しいことは知らず、「保存」「取得」といった抽象概念のみ扱えるようになる
+- 必然的にDependency Injectionを使うことになる
+  - テストが容易となる
+  - マスタ、スレーブの切り替えをusecase外から制御できる
+
+### Dependency Injection
+
+```java
+// 時間を操作してテストできない
+class HogeUseCase {
+  public boolean isExpired(){
+    return expiredDate <= Ride.util.now();
+  }
+}
+```
+
+```java
+// 特定時刻を返すような実装を用意してテストできる
+interface ISystemEnvironmentRepository{
+  DateTime now();
+  String ipAddress();
+  // ...
+}
+
+class HogeUseCase {
+  ISystemEnvironmentRepository systemRepo;
+  HogeUseCase(ISystemEnvironmentRepository repo){
+    systemRepo = repo; // dependency injection
+  }
+
+  public boolean isExpired(){
+    return expiredDate <= systemRepo.now();
+  }
+}
+```
+
+### Anycaでの現実的なライン
+
+- 静的型付言語ではinterfaceが必須だが、Perlにはinterfaceは無い
+- ダックタイピングでよしなに動くので、あえてinterfaceを定義する必要性は薄そう
+- できれば、実装を簡単にすり替えられる(Dependency Injectionできる)ような構造になっていればベター
+  - 「シェア周りをがっつりリファクタしてテストも書きます」とかになったら絶対やるべき
+
+## Interface Adapters
+
+![](https://8thlight.com/blog/assets/posts/2012-08-13-the-clean-architecture/CleanArchitecture.jpg)
+> set of adapters that convert data from the format most convenient for the use cases and entities
+
+- Adapterという名の通り、うまくCleanArchitectureになっていればこの層では内部と外界の表現形式(データ)の変換しか行われない
+- UseCaseやEntityの世界（内部）と、外部の世界をつなぐ
+- 代表的なInterface Adapter
+    - コントローラー
+    - Repository
+    - バッチスクリプト
+
+- この層も例に漏れず依存方向は内側のみとなるのが理想だが、この層については両方向の依存を許してもいいのでは、とする論調も一定あるっぽい
+    - DIPするコストに対してリターン小さめ？
+        - フレームワークやDBのドライバを差し替えることが現実どれくらい有り得るか？
+    - 厳密にやった場合の例は https://qiita.com/hirotakan/items/698c1f5773a3cca6193e が参考になりそう(Go言語だけど)
+
+### よく使われるInterface Adapter
+
+#### コントローラー (Gateway)
+
+```java
+class CarController {
+    // 妥協:外部フレームワークのContextクラスを知ってしまっている
+    HttpResponse registerCar(Context c, RequestParams requestParams) {
+        // リクエストパラメータ ⇒ Entityへの変換
+        UserEntity driver = userRepository.get(c.userId);
+        CarEntity car = carRepository.get(requestParams.get("car_id"));
+        try {
+            RequestEntity request = requestUseCase.makeRequest(car, driver);
+            // json作成
+            // 妥協:HttpResponseという外側の世界について知っている
+            return HttpResponse.JSON(OK,responseJson);
+        } catch (UserError error) {
+            return HttpResponse.UserError(error.message);
+        } //...
+    }
+}
+```
+
+- リクエストパラメータ中のcar_id, user_id ⇔ CarEntity, UserEntity
+    - 現実的には、パラメータから値を取り出してUseCaseに渡すだけの場合も存在しそう
+- 処理結果のEntity ⇔ APIレスポンス用のjson
+- 処理結果のEntity ⇔ txでのレンダリング結果
+- 外からのリクエストパラメータを変換してUseCaseを呼び出して、その実行結果をまた外に返す
+- ContollerにてUseCaseの返り値を別のUseCaseに渡すのはアンチパターン(Controllerがビジネスロジックに言及してしまうことになる)
+
+
+### Repository
+
+- SQL文はrepositoryにしかでてこないようにする
+
+```java
+
+class CarRepository implements ICarRepository {
+  void insert(CarEntity car) {
+    // carから色々取り出してRDBにinsert
+    // 妥協: 特定のDBライブラリに直接依存
+    db.execute(
+      "INSERT INTO car_data values (?, ?, ...)",
+      newId(),
+      car.model.modelId,
+      car.maker.makerId,
+      // ...
+    );
+  }
+
+  void update(CarEntity car) {
+    // ...
+  }
+
+  CarEntity get(int carId) {
+    db.execute("SELECT * FROM car_data where car_id=?", carId);
+  }
+
+  List<CarEntity> search(int beginDate, int endDate, ) {
+    List<Row> rows = db.execute(
+      "SELECT * FROM car_data where ...",
+      // ...
+    );
+    // List<Row> => List<CarEntity> への変換
+    return cars;
+  }
+
 }
 
 ```
 
-- 問題点
-    - コントローラーがstatus_code（非ユビキタス言語、非ドメイン知識）について知っている
-    - ステータスコード増えた時に収集つかなくなる
-        - ステータスコードで分岐してる全てのControllerを直して回ることに
+- 外部データ(RDBの行データ、NoSQL、csvファイル、…) ⇔ Entity の変換
+  - データの取得・保存の裏側のロジックを隠し、抽象的に取得・保存を行えるようにする
+- google APIから地理情報取ってくるのもrepository
+- ハッシュ化や暗号化処理もRepositoryの責務
 
-- modelから引っ張ってきたデータに対して(boolean除き)if文で分岐してたら要注意
-- 本質的にcontrollerが知りたい情報以外についてハンドリングしてたらなんかおかしい
-- そもそもステータスを列挙してORしてる時点でなんかおかしいかも
-異なるステータスが同一の意味を持っていることに他ならない、分離が足りていない
-- きちんと分離できていると
+### バッチスクリプト
 
-## そもそもステータスって？
-
-- ステータスの意味が曖昧なのでみんな好きになんでもステータス増やしてしまう
-    - 「CS審査結果」「車検証登録状態」「」とかに分離して持っとくべき
-
-
-### after
-
-```
-# ==================
-# HogeController
-# ==================
-
-$is_accepted = HogeModel->is_accepted_user($user_id);
-
-if($is_accepted){
-    # do_something
+```java
+public class WithdrawUser {
+    public static void main(String[] args) {
+        int userId = String.parseInt(args[0]);
+        accountUseCase.withdraw(userId);
+    }
 }
 
-# ==================
-# HogeModel
-# ==================
+```
 
-sub is_accepted_user($user_id) {
-    $status_code = get_status_code($user_id);
-    return $status_code == 0 || $status_code == 9;
+## Frameworks & Drivers
+
+![](https://8thlight.com/blog/assets/posts/2012-08-13-the-clean-architecture/CleanArchitecture.jpg)
+
+- フレームワークや各種ライブラリ、UI、それらの最低限のwrapper(腐敗防止層？)
+    - Amon2
+    - Teng
+    - .tx⇒htmlのレンダラー
+    - bash, zshなどのshell
+
+## エニカの今後の実装方針をどうするか
+
+### 現状
+
+### 実装方針案(たたき台)
+
+- 「Entityは普遍的なルール」「UseCaseはアプリのルール」「Controllerは外部⇔内部の変換」「Repositoryは外部とのデータの取得・保存やりとり」というのを最低限担保する
+  - Entity層を導入する
+    - CarとかShareをインスタンス化
+  - 適切でない責務の関数は適切な場所になるべく移していく
+    - Ride::Service::XXXの役割がUseCaseになり、Ride::Model::XXXの役割はRepositoryになりそう
+  - DBクエリはrepositoryにのみ記述
+- どうしても厳しいところは許容する
+  - ~~EntityからRepository呼ぶのは、__参照に限って__ 許容。insertとかupdateはダメ~~ たとえ参照だけでも、DIやテストの大変さが爆増するのでやっぱり無し
+  - ヤバいコードはなるべくinterface adapter層に集めて、usecaseとentityを汚染しないよう気をつける
+- 不都合はどんどん言語化していく
+  - いろいろな制約からCleanArchitectureに反さざるを得ないときや、既存の反しているもので将来的にどうにかしたいものがあった場合は、なぜそうしたかや今後どうすべきかの方針のコメントを積極的に残す
+- 依存関係の逆転 ⇒ 動的型付なのでダックタイピングできるし、コスパ考えるとやらなくてよさげ？
+- 依存性注入 ⇒ ケースによっては要検討
+  - UseCase単位でのテストとかを考えるのであれば、DIでDBをモックできたほうが効率的。E2Eしかやらないと割り切るなら不要
+  - コア部分をリファクタするようなことがあった際は絶対やったほうが良い
+- 曖昧なことやわかんないことがあれば話し合う
+
+### 期待される効果
+
+- どこに何書けばいいか/どこに何が書いてあるかの共通認識が持てる
+- ロジックが散らばるのを抑制できる
+- 考慮漏れが減らせる
+- どこからどう使われているかわかんなくて変更するのが怖いみたいなことが減る
+- テストやデバッグツールが作りやすくなる
+
+### 適用例
+
+![](./screenshot.png)
+
+### To Be Continued？
+
+- CleanArchitectureのルールは「いくつかのレイヤに分けて依存関係を1方向にする」のみ
+- 同レイヤ内での適切な責務分担の仕方については、CleanArchitectureの範囲外
+    - EntityやUseCaseはどのような単位で分割するのが良いのか
+    - ShareEntityはどういうpublicな関数を持つべきなのか
+    - とあるクルマにリクエスト可能かどうかの判定って誰が責務を負うのか
+
+    ⇒ こういった部分についてはDDDで言及されていそう
+
+- CleanArchitecture ≠ DDD
+  - DDDを実践するのに適したアーキテクチャのうちの一つがクリーンアーキテクチャ
+  - 言ってることが被ってる部分もかなりあるけど、DDDのほうが包括的なお話
+
+⇒ IPPFがDDDのエキスパート読んで勉強会やるらしいので参加してきます
+
+## 備考
+
+### ~~Entityからrepository触らないというのは現状厳しい~~
+
+たとえ参照だけでも、DIやテストの大変さが爆増するのでやっぱり触らないようにすべき  
+多分別解がある
+
+```java
+class PartnerProgramEntity{
+  int partnerProgramId;
+
+  DateTime beginDate;
+  DateTime endDate;
+  List<Car> list;
+  // ...  
+
+  boolean isBegin(DateTime time) {
+    return currentTime > this.beginDate;
+  }
+
+  List<CarEntity> cars(boolean onlyPublicCars){
+    // ここのデータはいつ取得する？？？
+  }
+  // ...  
 }
 ```
 
-- Controllerからはユビキタス言語の関数を呼び出す
-- ステータスコードの判定ロジックが自然と集約される
+- `partnerProgram.cars()[0].freeDeliveryPlaces()[1].station().name()`みたいに、オブジェクト同士の関連はそのルートから辿れるようになっているのが望ましいし、CleanArchitectureも一定それを前提とした設計になっている。
+- そうすると、patnerProgram.beginDateしかほんとは使わないときにも、carとかstationとか全部RDBから取ってきてcarオブジェクトを構成しておかなくてはいけないことになる。
+- ~~それは現実的ではないということで、`partnerProgram.cars()`が呼ばれた時に遅延読み込みで取ってこようとすると、どうあがいてもEntityからレポジトリ触ることになる~~
+  - たとえ参照だけでも、DIやテストの大変さが爆増するのでやっぱり触らないようにすべき、多分別解がある
+- リレーションまで扱えるような高機能なORM使えばある程度解決できる気もするが、今から導入は非現実的
+  - Perlだと`DBIx::Class`というのがあるっぽい
+- そもそもRDBはオブジェクト指向プログラミングとは相性よくないらしい(インピーダンスミスマッチと呼ばれている)
 
-## model or usecase?
+## 現実的な細かいケースへの対応
 
-entity or repositoryの関数が出現するようならusecase?
+- $share_data_listに後付けでpartner_program情報を付与したい
 
-## master, slaveの扱い
+```perl
+sub map_by_share_id_list {
+    my ($self, $shares) = @_;
 
-# client
+    # ...
 
-## グローバル変数の弊害
+    my $rows = $self->search_named({ sql => <<"SQL", values => { share_id_list => $share_id_list } });
+    select program_id, start_date, end_date from partner_program_shares
+        where share_id in :share_id
+SQL
 
-- 「この画面(関数)にこの引数で入ってきた場合はこの状態」というのが担保できなくなるため、テストケースが膨大になる
-    - ユーザーがどういった画面遷移からその画面にたどりついたか、などによってグローバル変数の状態が変わるため、無限に考慮パターンが増える
+    my $map = {map  }
 
-# おわりに
+}
+```
 
-## アンチパターンを考えるということ
+
+## 参考
+
+- Applying The Clean Architecture to Go applications
+http://manuel.kiessling.net/2012/09/28/applying-the-clean-architecture-to-go-applications/
+
+- 持続可能な開発を目指す ~ ドメイン・ユースケース駆動（クリーンアーキテクチャ） + 単方向に制限した処理 + FRP
+https://qiita.com/kondei/items/41c28674c1bfd4156186
+
+- Clean ArchitectureでAPI Serverを構築してみる
+https://qiita.com/hirotakan/items/698c1f5773a3cca6193e
+
+- UseCaseの再利用性
+http://yoskhdia.hatenablog.com/entry/2016/10/18/152624
