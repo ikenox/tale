@@ -70,13 +70,13 @@ layout: base
     </a>
   </div>
   <div class="post-profile-info">
-    <a href="/about">
+    <a href="/about" onclick="sendLinkClickedEvent(LinkType.BottomProfile)">
     <span class="post-profile-name-en">
       {{ site.author.name_en }}
     </span>
   </a><br>
     <span class="post-profile-social-accounts">
-       <a href="https://github.com/{{ site.accounts.github }}" target="_blank"><i class="fa fa-github" aria-hidden="true"></i> <span>@{{ site.accounts.github }}</span></a> <a href="https://twitter.com/{{ site.accounts.twitter }}" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i> <span>@{{ site.accounts.twitter }}</span></a>
+       <a href="https://github.com/{{ site.accounts.github }}" target="_blank" onclick="sendLinkClickedEvent(LinkType.GitHub)"><i class="fa fa-github" aria-hidden="true"></i> <span>@{{ site.accounts.github }}</span></a> <a href="https://twitter.com/{{ site.accounts.twitter }}" target="_blank" onclick="sendLinkClickedEvent(LinkType.Twitter)"><i class="fa fa-twitter" aria-hidden="true"></i> <span>@{{ site.accounts.twitter }}</span></a>
     </span>
   </div>
 </div>

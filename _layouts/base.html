@@ -14,6 +14,17 @@
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
 
+    <script>
+    var LinkType = {
+        GitHub: {label: 'github'},
+        Twitter: {label: 'twitter'},
+        BottomProfile: {label: 'twitter'},
+    };
+    function sendLinkClickedEvent(linkType){
+      ga('send', 'event', 'link', 'clicked', linkType.label, 0, {'nonInteraction':1});
+    }
+    </script>
+
     <nav class="nav">
       <div class="nav-container">
         <a href="{{ site.baseurl }}/">
