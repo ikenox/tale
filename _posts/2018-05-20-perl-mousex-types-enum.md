@@ -16,11 +16,12 @@ title: MouseX::Types::Enum - PerlでJavaのenum(列挙型)のようなクラス�
 # 使用例
 
 `MouseX::Types::Enum`では、Javaの列挙型のように各列挙定数がメンバ変数やメソッドを持つことが可能です。  
-使用例を以下に示します。  
-- `APPLE`, `ORANGE`, `BANANA`という3つの列挙定数を定義しています。  
-    - `use`句で`MouseX::Types::Enum`を呼び出す際に、定義したい列挙定数の配列を渡してあげます。  
-- 列挙定数は`name`, `color`, `has_seed`というメンバ変数を持っています。  
-- `make_sentence`というメソッドは、引数やメンバ変数をもとに値を返します。
+使用例を以下に示します。この例では、
+- `APPLE`, `ORANGE`, `BANANA`という3つの列挙定数を定義しました。  
+  - `use`句で`MouseX::Types::Enum`を呼び出す際に、定義したい列挙定数の配列を渡してあげます。  
+- 列挙定数に`name`, `color`, `has_seed`というメンバ変数を定義しました。
+  - メンバ変数の定義にはMouseの文法である`has`が使えます。
+- `make_sentence`というメソッドを定義しました。引数やメンバ変数をもとに文字列を組み立てて返します。
 
 ```perl
 {
