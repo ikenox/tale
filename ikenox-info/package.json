@@ -17,13 +17,14 @@
     "gatsby-plugin-sharp": "^1.6.2",
     "gatsby-remark-copy-linked-files": "^1.5.2",
     "gatsby-remark-images": "^1.5.4",
-    "gatsby-remark-prismjs": "^1.2.1",
+    "gatsby-remark-prismjs": "^1.2.24",
     "gatsby-remark-responsive-iframe": "^1.4.3",
     "gatsby-remark-smartypants": "^1.4.3",
     "gatsby-source-filesystem": "^1.4.3",
-    "gatsby-transformer-remark": "^1.7.1",
+    "gatsby-transformer-remark": "^1.7.44",
     "gatsby-transformer-sharp": "^1.6.1",
-    "lodash": "^4.15.0"
+    "lodash": "^4.15.0",
+    "prismjs": "^1.15.0"
   },
   "devDependencies": {
     "gh-pages": "^0.12.0",

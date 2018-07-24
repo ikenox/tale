@@ -1,6 +1,9 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
+require("./prism.css");
+require("./base.css");
+
 class Template extends React.Component {
   render() {
     const { location, children } = this.props

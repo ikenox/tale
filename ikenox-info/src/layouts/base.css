@@ -1,0 +1,7 @@
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: 3px 4px;
+  margin: 0 2px;
+  color: #202746;
+  border-radius: 0;
+}
