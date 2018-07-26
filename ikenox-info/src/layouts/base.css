@@ -1,7 +1,61 @@
+html {
+  font-size: 18px;
+  color: #0a0a0a;
+  font-weight: lighter;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: #0a0a0a;
+}
+
+p {
+  margin: 0;
+  line-height: 1.8em;
+  box-sizing: border-box;
+  display: block;
+}
+
+p + p {
+  margin-top: 24px;
+}
+
+li {
+  line-height: 1.8em;
+}
+
 /* Inline code */
 :not(pre) > code[class*="language-"] {
+  font-size: .9em;
   padding: 3px 4px;
+  background: #fafafa;
   margin: 0 2px;
   color: #202746;
   border-radius: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  letter-spacing: 0.04em;
+}
+
+pre[class*="language-"] {
+  padding: 24px 36px;
+  line-height: 1.4em;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+
+code[class*="language-"] {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-style: normal;
+  white-space: pre-wrap;
+  word-break: break-word;
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import profilePic from './profile-pic.jpg'
+import profilePic from './profile.jpeg'
 
 class Bio extends React.Component {
   render() {
@@ -9,6 +9,7 @@ class Bio extends React.Component {
         <img
           src={profilePic}
           alt={`Kyle Mathews`}
+          width={80}
         />
         Written by <strong>Kyle Mathews</strong> who lives and works in San
         Francisco building useful things.{' '}

@@ -6,13 +6,13 @@ require("./base.css");
 
 class Template extends React.Component {
   render() {
-    const { location, children } = this.props
+    const {location, children} = this.props
     let header
     if (location.pathname === '/') {
       header = (
         <h1>
-          <Link to={'/'} >
-            Gatsby Starter Blog
+          <Link to={'/'}>
+            ikenox.info
           </Link>
         </h1>
       )
@@ -20,13 +20,13 @@ class Template extends React.Component {
       header = (
         <h3>
           <Link to={'/'}>
-            Gatsby Starter Blog
+            ikenox.info
           </Link>
         </h3>
       )
     }
     return (
-      <div>
+      <div style={{margin: "0 auto", maxWidth: "740px", paddingLeft: "20px", paddingRight: "20px" }}>
         {header}
         {children()}
       </div>
