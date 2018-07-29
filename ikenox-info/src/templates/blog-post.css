@@ -23,6 +23,10 @@ p {
   display: block;
 }
 
+li > p {
+  margin:0;
+}
+
 .content table, td, th {
   border-collapse: collapse;
   border: 1px solid #333;
