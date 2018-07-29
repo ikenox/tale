@@ -1,0 +1,30 @@
+ol p {
+  display: inline-block;
+}
+
+ol {
+  font-size: .8em;
+  padding-left: 2em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 48px;
+  margin-bottom: 16px;
+  letter-spacing: 0.04em;
+}
+
+p + p {
+  margin-top: 24px;
+}
+
+p {
+  margin: 0;
+  line-height: 1.8em;
+  box-sizing: border-box;
+  display: block;
+}

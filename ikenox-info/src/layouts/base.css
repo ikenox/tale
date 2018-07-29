@@ -10,17 +10,6 @@ a {
   color: #0a0a0a;
 }
 
-p {
-  margin: 0;
-  line-height: 1.8em;
-  box-sizing: border-box;
-  display: block;
-}
-
-p + p {
-  margin-top: 24px;
-}
-
 li {
   line-height: 1.8em;
 }
@@ -33,17 +22,6 @@ li {
   margin: 0 2px;
   color: #202746;
   border-radius: 0;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-top: 48px;
-  margin-bottom: 16px;
-  letter-spacing: 0.04em;
 }
 
 pre[class*="language-"] {
@@ -63,7 +41,7 @@ code[class*="language-"] {
 hr {
   border: none;
   height: 1px;
-  /* Set the hr color */
-  color: #333; /* old IE */
-  background-color: #333; /* Modern Browsers */
+  color: #aaa; /* old IE */
+  background-color: #bbb; /* Modern Browsers */
 }
+

@@ -1,9 +1,10 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
-import get from 'lodash/get'
 
 import Bio from '../components/Bio'
+
+require('./blog-post.css')
 
 class BlogPostTemplate extends React.Component {
   render() {
