@@ -1,6 +1,8 @@
 import React from 'react'
 
 import profilePic from './profile.jpeg'
+import FaGithub from 'react-icons/lib/fa/github'
+import FaTwitter from 'react-icons/lib/fa/twitter'
 
 class Bio extends React.Component {
   render() {
@@ -11,11 +13,7 @@ class Bio extends React.Component {
           alt={`Kyle Mathews`}
           width={80}
         />
-        Written by <strong>Kyle Mathews</strong> who lives and works in San
-        Francisco building useful things.{' '}
-        <a href="https://twitter.com/kylemathews">
-          You should follow him on Twitter
-        </a>
+        <FaGithub/><FaTwitter/>
       </p>
     )
   }
