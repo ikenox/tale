@@ -12,8 +12,7 @@ h2,
 h3,
 h4,
 h5,
-h6
-{
+h6 {
   margin-top: 36px;
 }
 
@@ -21,4 +20,21 @@ p {
   line-height: 1.8em;
   box-sizing: border-box;
   display: block;
+}
+
+.content table, td, th {
+  border-collapse: collapse;
+  border: 1px solid #333;
+}
+
+.content th,td {
+  font-size: .9em;
+  padding: 8px 12px;
+}
+
+.content th {
+  background: #fff;
+}
+.content tr:nth-child(odd){
+  background: #eee;
 }
