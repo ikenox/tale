@@ -38,3 +38,9 @@ p {
 .content tr:nth-child(odd){
   background: #eee;
 }
+
+.content hr {
+  border: none;
+  background: none;
+}
+
