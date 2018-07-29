@@ -14,6 +14,17 @@ li {
   line-height: 1.8em;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: 0.04em;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
 /* Inline code */
 :not(pre) > code[class*="language-"] {
   font-size: .9em;
@@ -41,7 +52,9 @@ code[class*="language-"] {
 hr {
   border: none;
   height: 1px;
-  color: #aaa; /* old IE */
-  background-color: #bbb; /* Modern Browsers */
+  margin-top:36px;
+  margin-bottom:36px;
+  color: #0a0a0a; /* old IE */
+  background-color: #0a0a0a; /* Modern Browsers */
 }
 
