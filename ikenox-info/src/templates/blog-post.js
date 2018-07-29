@@ -32,7 +32,7 @@ class BlogPostTemplate extends React.Component {
       <div>
         <Helmet title={`${post.frontmatter.title} | ${siteTitle}`}/>
         <h1 style={{marginBottom: "0px"}}>{post.frontmatter.title}</h1>
-        <p style={{marginTop: "0px", fontWeight: "bold", color: "#666"}}>{post.frontmatter.date}</p>
+        <p className={`date-text`} style={{marginTop: "0px"}}>{post.frontmatter.date}</p>
         <div className={`content`} dangerouslySetInnerHTML={{__html: post.html}}
              style={{marginTop: "48px", marginBottom: "48px"}}/>
         <hr/>
