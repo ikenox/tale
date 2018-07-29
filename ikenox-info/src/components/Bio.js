@@ -17,16 +17,16 @@ const P = styled.p`
 class Bio extends React.Component {
   render() {
     return (
-      <div>
-        <Link to={`/about`}>
+      <div style={{ verticalAlign:"middle", display:"flex", alignItems:"center" }}>
+        <Link to={`/about`} style={{float:"left", lineHeight:0 }}>
           <img
             src={profilePic}
             alt={`Naoto Ikeno`}
             width={80}
-            style={{ float: "left", borderRadius:40 }}
+            style={{ borderRadius:40 }}
           />
         </Link>
-        <div style={{ marginLeft:"88px", height:80, verticalAlign:"middle" }}>
+        <div style={{ marginLeft:"12px"}}>
           <P style={{ fontSize:"1.2em", fontWeight:"bold" }}>
             Naoto Ikeno
           </P>
