@@ -42,15 +42,16 @@ IdeaVimは、**IntelliJやAndroid StudioなどのJetBrains系列のIDEで使え�
 |レジスタ|利用可能|
 |その他|`:set surround`することで[vim-surround](https://github.com/tpope/vim-surround)を再現した機能を利用可能|
 
-<br>
-より詳しく知りたいという方は、[Githubリポジトリ](https://github.com/JetBrains/ideavim)のREADMEやソースコードをご覧になってみてください。
+より詳しく知りたいという方は、
+[GitHubのレポジトリ](https://github.com/JetBrains/ideavim)
+のREADMEなどご覧になってみてください。
 
 # IdeaVimをインストール
 
 通常のIntelliJプラグインと同じく、`[Preferences] > [Plugins]`からインストールできます。  
 インストール後にIntelliJを再起動するとIdeaVimが有効になります。
 
-![Install IdeaVim]({{ "/assets/img/posts/ideavim-introduction/install-ideavim.png" | absolute_url }})
+![Install IdeaVim](./install-ideavim.png)
 
 # .ideavimrcに設定を記述
 
