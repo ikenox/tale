@@ -14,6 +14,7 @@ h4,
 h5,
 h6 {
   margin-top: 36px;
+  font-weight: 700;
 }
 
 p {
@@ -42,5 +43,9 @@ p {
 .content hr {
   border: none;
   background: none;
+}
+
+.content h2 {
+  font-size: 1.3em;
 }
 
