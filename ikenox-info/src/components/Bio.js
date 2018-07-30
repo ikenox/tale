@@ -34,8 +34,8 @@ class Bio extends React.Component {
             Backend Engineer, Software Architecture & Design, Perl, Golang, GCP
           </P>
           <P style={{ fontSize:"1.2em" }}>
-            <FaGithub/>
-            <FaTwitter/>
+            <a href={`https://github.com/ikenox`} target={`_blank`}><FaGithub/></a>
+            <a href={`https://twitter.com/ikenoxx`} target={`_blank`}><FaTwitter/></a>
           </P>
         </div>
       </div>
@@ -44,3 +44,16 @@ class Bio extends React.Component {
 }
 
 export default Bio
+
+export const pageQuery = graphql`
+  query BioQuery {
+    site {
+      siteMetadata {
+        title
+        sns {
+          twitter
+        }
+      }
+    }
+  }
+`

@@ -18,7 +18,8 @@ h6 {
 }
 
 p {
-  line-height: 1.8em;
+  line-height: 36px;
+  word-wrap: break-word;
   box-sizing: border-box;
   display: block;
 }

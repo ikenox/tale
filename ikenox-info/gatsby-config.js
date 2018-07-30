@@ -2,6 +2,9 @@ module.exports = {
   siteMetadata: {
     title: "ikenox.info",
     author: "Kyle Mathews",
+    sns: {
+      "twitter": "https://twitter.com/ikenoxx"
+    }
   },
   plugins: [
     {

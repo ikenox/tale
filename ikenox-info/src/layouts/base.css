@@ -3,6 +3,7 @@ html {
   color: #0a0a0a;
   font-weight: lighter;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
+  font-kerning: normal;
   -webkit-font-smoothing: antialiased;
 }
 
