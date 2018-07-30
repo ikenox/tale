@@ -12,19 +12,19 @@ class BlogIndex extends React.Component {
 
     return (
       <div>
-        <Helmet title={siteTitle} />
-        <Bio />
-        {posts.map(({ node }) => {
+        <Helmet title={siteTitle}/>
+        <Bio/>
+        {posts.map(({node}) => {
           const title = get(node, 'frontmatter.title') || node.fields.slug
           return (
-            <div key={node.fields.slug}>
-              <h3 style={{ marginBottom:"4px" }}>
-                <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
+            <div key={node.fields.slug} style={{marginTop: "36px"}}>
+              <small className={`date-text`}>{node.frontmatter.date}</small>
+              <h3 style={{marginTop: "4px", marginBottom:"4px"}}>
+                <Link style={{boxShadow: 'none'}} to={node.fields.slug}>
                   {title}
                 </Link>
               </h3>
-              <small className={`date-text`} >{node.frontmatter.date}</small>
-              <p style={{ fontSize:".9em", marginTop:"4px" }} dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+              <p style={{fontSize: ".9em", marginTop: 0, lineHeight:"1.8em"}} dangerouslySetInnerHTML={{__html: node.excerpt}}/>
             </div>
           )
         })}
