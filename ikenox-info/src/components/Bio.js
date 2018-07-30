@@ -27,10 +27,12 @@ class Bio extends React.Component {
           />
         </Link>
         <div style={{ marginLeft:"12px"}}>
-          <P style={{ fontSize:"1.2em", fontWeight:"bold" }}>
+          <P style={{ fontSize:"1.2em", fontWeight:"700" }}>
             Naoto Ikeno
           </P>
-          <P style={{ fontSize:".8em" }}>Software Engineer</P>
+          <P style={{ fontSize:".8em", color:"#666", fontWeight:"500" }}>
+            Backend Engineer, Software Architecture & Design, Perl, Golang, GCP
+          </P>
           <P style={{ fontSize:"1.2em" }}>
             <FaGithub/>
             <FaTwitter/>
