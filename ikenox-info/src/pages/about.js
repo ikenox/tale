@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 
 import Bio from '../components/Bio'
 import FaTwitter from 'react-icons/lib/fa/twitter'
-import FaMail from 'react-icons/lib/fa/mail-forward'
+import FaMail from 'react-icons/lib/fa/envelope-o'
 
 class About extends React.Component {
   render() {
