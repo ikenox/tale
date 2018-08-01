@@ -36,8 +36,10 @@ class BlogPostTemplate extends React.Component {
         <p className={`date-text`} style={{marginTop: "0px"}}>{post.frontmatter.date}</p>
         <div className={`content`} dangerouslySetInnerHTML={{__html: post.html}}
              style={{marginTop: "48px", marginBottom: "48px"}}/>
-        <hr/>
-
+        {post.html.length > 1000 && (
+          // ある程度長いページならページ下部にもBio
+          <Bio/>
+        )}
         <hr/>
         <Pager>
           {previous && (
