@@ -13,11 +13,11 @@ a {
 }
 
 .linkPrevious{
-font-size:.9em;
+font-size:.9rem;
 padding:5px;
 }
 .linkNext{
-font-size:.9em;
+font-size:.9rem;
 padding:5px;
 }
 `
@@ -32,10 +32,10 @@ class BlogPostTemplate extends React.Component {
       <div>
         <Helmet title={`${post.frontmatter.title} | ${siteTitle}`}/>
         <Bio/>
-        <h1 style={{marginBottom: "0px"}}>{post.frontmatter.title}</h1>
-        <p className={`date-text`} style={{marginTop: "0px", fontWeight:"500"}}>{post.frontmatter.date}</p>
+        <h1 style={{marginBottom: 0}}>{post.frontmatter.title}</h1>
+        <p className={`date-text`} style={{marginTop: 0}}>{post.frontmatter.date}</p>
         <div className={`content`} dangerouslySetInnerHTML={{__html: post.html}}
-             style={{marginTop: "48px", marginBottom: "48px"}}/>
+             style={{marginTop: "2rem", marginBottom: "2rem"}}/>
         {post.html.length > 1000 && (
           // ある程度長いページならページ下部にもBio
           <Bio/>

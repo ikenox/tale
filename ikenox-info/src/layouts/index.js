@@ -10,7 +10,7 @@ class Template extends React.Component {
     let header
     if (location.pathname === '/') {
       header = (
-        <h1 style={{ fontSize:"18pt", marginTop:"24px" }}>
+        <h1 style={{ fontSize:"18pt", marginTop:".8rem" }}>
           <Link to={'/'}>
             ikenox.info
           </Link>
@@ -18,7 +18,7 @@ class Template extends React.Component {
       )
     } else {
       header = (
-        <h3 style={{ fontSize:"18pt", marginTop:"24px" }}>
+        <h3 style={{ fontSize:"18pt", marginTop:".8rem" }}>
           <Link to={'/'}>
             ikenox.info
           </Link>
@@ -26,7 +26,7 @@ class Template extends React.Component {
       )
     }
     return (
-      <div style={{margin: "0 auto", maxWidth: "740px", paddingLeft: "20px", paddingRight: "20px" }}>
+      <div className={`content-wrapper`}>
         {header}
         {children()}
       </div>
