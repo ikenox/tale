@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: "ikenox.info",
-    author: "Kyle Mathews",
+    author: "Naoto Ikeno",
     sns: {
       "twitter": "https://twitter.com/ikenoxx"
     }
