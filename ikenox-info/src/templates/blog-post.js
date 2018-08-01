@@ -3,6 +3,7 @@ import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 
 import Bio from '../components/Bio'
+import SocialButtons from '../components/SocialButtons'
 import styled from 'styled-components';
 
 require('./blog-post.css')
@@ -34,6 +35,7 @@ class BlogPostTemplate extends React.Component {
         <Bio/>
         <h1 style={{marginBottom: 0}}>{post.frontmatter.title}</h1>
         <p className={`date-text`} style={{marginTop: 0}}>{post.frontmatter.date}</p>
+        <SocialButtons/>
         <div className={`content`} dangerouslySetInnerHTML={{__html: post.html}}
              style={{marginTop: "2rem", marginBottom: "2rem"}}/>
         {post.html.length > 1000 && (
