@@ -1,19 +1,14 @@
 import React from 'react'
-import styled from 'styled-components';
-
-const P = styled.p`
-  margin: 0px;
-  line-height:1.2em;
-  +p {
-    margin:0px;
-  }
-`
+import { HatenabookmarkButton, PocketButton, FacebookButton, TwitterTweetButton } from 'react-social-sharebuttons';
 
 class SocialButtons extends React.Component {
   render() {
     return (
-      <div>
-        hoge
+      <div style={{ verticalAlign:"middle" }}>
+        <HatenabookmarkButton layout={`standard-balloon`}/>
+        <FacebookButton layout={`button_count`} share={true} style={{ margin:"5px" }}/>
+        <TwitterTweetButton/>
+        <PocketButton count={`horizontal`}/>
       </div>
     )
   }
