@@ -44,16 +44,3 @@ class Bio extends React.Component {
 }
 
 export default Bio
-
-export const pageQuery = graphql`
-  query BioQuery {
-    site {
-      siteMetadata {
-        title
-        sns {
-          twitter
-        }
-      }
-    }
-  }
-`

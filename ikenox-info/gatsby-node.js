@@ -4,7 +4,11 @@ const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators
+  const { createPage, createRedirect } = boundActionCreators
+
+  createRedirect({ fromPath: '/2017-10-15/first-commit', toPath: '/2017-10-15-first-commit', isPermanent: true, redirectInBrowser: true })
+  createRedirect({ fromPath: '/2017-12-25/ideavim-introduction', toPath: '/2017-12-25-ideavim-introduction', isPermanent: true, redirectInBrowser: true })
+  createRedirect({ fromPath: '/2018-05-20/perl-mousex-types-enum', toPath: '/2018-05-20-perl-mousex-types-enum', isPermanent: true, redirectInBrowser: true })
 
   return new Promise((resolve, reject) => {
     const blogPost = path.resolve('./src/templates/blog-post.js')
@@ -66,3 +70,4 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
     })
   }
 }
+
