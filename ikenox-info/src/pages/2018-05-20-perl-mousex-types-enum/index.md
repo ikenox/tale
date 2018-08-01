@@ -12,7 +12,7 @@ Javaの`enum`型のように、フィールドやメソッドを持つ列挙型�
 
 [Mouse](https://metacpan.org/pod/Mouse)の拡張モジュールとして作ったので、Mouseに依存しています。
 
-# 使用例
+## 使用例
 
 `MouseX::Types::Enum`では、Javaの列挙型のように各列挙定数がメンバ変数やメソッドを持つことが可能です。  
 使用例を以下に示します。この例では、
@@ -21,68 +21,71 @@ Javaの`enum`型のように、フィールドやメソッドを持つ列挙型�
 - `make_sentence`というメソッドを定義しました。引数やメンバ変数をもとに文字列を組み立てて返します。
 
 ```perl
-{
-    package Fruits;
+package Fruits;
 
-    use Mouse;
-    use MouseX::Types::Enum (
-        APPLE  => { name => 'Apple', color => 'red' },
-        ORANGE => { name => 'Cherry', color => 'red' },
-        BANANA => { name => 'Banana', color => 'yellow', has_seed => 0 }
-    );
+use Mouse;
+use MouseX::Types::Enum (
+    APPLE  => { name => 'Apple', color => 'red' },
+    ORANGE => { name => 'Cherry', color => 'red' },
+    BANANA => { name => 'Banana', color => 'yellow', has_seed => 0 }
+);
 
-    has name => (is => 'ro', isa => 'Str');
-    has color => (is => 'ro', isa => 'Str');
-    has has_seed => (is => 'ro', isa => 'Int', default => 1);
+has name => (is => 'ro', isa => 'Str');
+has color => (is => 'ro', isa => 'Str');
+has has_seed => (is => 'ro', isa => 'Int', default => 1);
 
-    sub make_sentence {
-        my ($self, $suffix) = @_;
-        $suffix ||= "";
-        return sprintf("%s is %s%s", $self->name, $self->color, $suffix);
-    }
-
-    __PACKAGE__->meta->make_immutable;
+sub make_sentence {
+    my ($self, $suffix) = @_;
+    $suffix ||= "";
+    return sprintf("%s is %s%s", $self->name, $self->color, $suffix);
 }
 
-Fruits->APPLE == Fruits->APPLE;        # 1
-Fruits->APPLE == Fruits->ORANGE;       # ''
-Fruits->APPLE->to_string;              # 'APPLE'
-
-Fruits->APPLE->name;                   # 'Apple';
-Fruits->APPLE->color;                  # 'red'
-Fruits->APPLE->has_seed;               # 1
-
-Fruits->APPLE->make_sentence('!!!');   # 'Apple is red!!!'
-
-Fruits->enums; # { APPLE  => Fruits->APPLE, ORANGE => Fruits->ORANGE, BANANA => Fruits->BANANA }
-
+__PACKAGE__->meta->make_immutable;
 ```
 
-## メンバ変数が不要な場合の宣言方法
+```perl
+use Fruits;
+
+Fruits->APPLE == Fruits->APPLE; # 1
+Fruits->APPLE == Fruits->ORANGE; # ''
+Fruits->APPLE->to_string; # 'APPLE'
+
+Fruits->APPLE->name; # 'Apple';
+Fruits->APPLE->color; # 'red'
+Fruits->APPLE->has_seed; # 1
+
+Fruits->APPLE->make_sentence('!!!'); # 'Apple is red!!!'
+
+Fruits->enums; # { APPLE  => Fruits->APPLE, ORANGE => Fruits->ORANGE, BANANA => Fruits->BANANA }
+```
+
+### メンバ変数が不要な場合の宣言方法
 
 メンバ変数が不要な場合は、以下のようにも宣言できます。  
 
 ```perl
-{
-    package Day;
+package Day;
 
-    use MouseX::Types::Enum qw/
-        Sun
-        Mon
-        Tue
-        Wed
-        Thu
-        Fri
-        Sat
-    /;
+use MouseX::Types::Enum qw/
+    Sun
+    Mon
+    Tue
+    Wed
+    Thu
+    Fri
+    Sat
+/;
 
-    __PACKAGE__->meta->make_immutable;
-}
+__PACKAGE__->meta->make_immutable;
+```
 
-Day->Sun == Day->Sun;   # 1
-Day->Sun == Day->Mon;   # ''
-Day->Sun->to_string;    # 'APPLE'
-Day->enums;             # { Sun => Day->Sun, Mon => Day->Mon, ... }
+```perl
+use Day;
+
+Day->Sun == Day->Sun; # 1
+Day->Sun == Day->Mon; # ''
+Day->Sun->to_string;  # 'APPLE'
+Day->enums; # { Sun => Day->Sun, Mon => Day->Mon, ... }
 ```
 
 ## 備考

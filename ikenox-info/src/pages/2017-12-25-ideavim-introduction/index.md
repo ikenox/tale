@@ -5,7 +5,7 @@ date: "2017-12-25T00:00Z"
 
 この記事は[JetBrains Advent Calendar 2017](https://qiita.com/advent-calendar/2017/jetbrains)の最終日分の投稿です。前日まで空いていたため、滑り込みで参加させていただきました！
 
-# IdeaVimとは
+## IdeaVimとは
 
 - [IdeaVim](https://plugins.jetbrains.com/plugin/164-ideavim)  
 - Github: [JetBrains/ideavim](https://github.com/JetBrains/ideavim)
@@ -15,7 +15,7 @@ IdeaVimは、**IntelliJやAndroid StudioなどのJetBrains系列のIDEで使え�
 
 ※ 以下、IntelliJを例にして進めますが、JetBrains系列のIDEであれば基本的に一緒なはずですので自身の使っているものに置き換えてお読みください。
 
-## なぜIdeaVimを使うか
+### なぜIdeaVimを使うか
 
 (※**個人的には**) IntelliJとVimのそれぞれに対して以下の点に良さを感じています。
 
@@ -26,7 +26,7 @@ IdeaVimは、**IntelliJやAndroid StudioなどのJetBrains系列のIDEで使え�
 細かい部分の挙動などはまだまだ本家Vimとの差分もありますが、**自分のような比較的ライトなVimユーザーがVimに求めている機能については、IdeaVimはその多くをカバーできているのではないか** と思います。  
 この記事ではIdeaVimの機能や設定方法の説明を通じて、その良さを伝えられたらと思います。
 
-## IdeaVimがサポートしている機能の一例
+### IdeaVimがサポートしている機能の一例
 
 細かい機能まで列挙するのは難しいため、普段自分がよく使う機能に絞ってその対応状況をまとめました。  
 
@@ -46,14 +46,14 @@ IdeaVimは、**IntelliJやAndroid StudioなどのJetBrains系列のIDEで使え�
 [GitHubのレポジトリ](https://github.com/JetBrains/ideavim)
 のREADMEなどご覧になってみてください。
 
-# IdeaVimをインストール
+## IdeaVimをインストール
 
 通常のIntelliJプラグインと同じく、`[Preferences] > [Plugins]`からインストールできます。  
 インストール後にIntelliJを再起動するとIdeaVimが有効になります。
 
 ![Install IdeaVim](./install-ideavim.png)
 
-# .ideavimrcに設定を記述
+## .ideavimrcに設定を記述
 
 IdeaVimでは、`.ideavimrc`というファイルに設定を記述してホームディレクトリに設置しておくことで、IntelliJ起動時にその設定を読み込んでくれます。  
 `.ideavimrc`には **本家Vimの`.vimrc`と同様に、各種mapやsetコマンドを記述することが可能です。**  
@@ -61,7 +61,7 @@ IdeaVimでは、`.ideavimrc`というファイルに設定を記述してホー�
 - 利用できる`set`コマンドのオプション一覧は[こちら](https://github.com/JetBrains/ideavim/blob/master/doc/set-commands.md)
 - IdeaVim独自のオプションとして`set surround`が存在し、本家Vimで言うところの[vim-surround](https://github.com/tpope/vim-surround)を一部再現した機能が利用可能
 
-## VimとIdeaVimのキーマップを一元管理
+### VimとIdeaVimのキーマップを一元管理
 
 自分は`.vimrc`から基本的なキーマップは切り出して`.vimrc.keymap`という独立したファイルにしておき、`.vimrc`と`.ideavimrc`それぞれから`source`コマンドを使って読み込んでいます。  
 こうすることで、VimとIdeaVimで共通して設定したい基本的なキーマップを一元管理できるようになります。これは`.ideavimrc`が`.vimrc`とほとんど同じ文法で記述できるからこそのメリットですね。
@@ -71,14 +71,14 @@ IdeaVimでは、`.ideavimrc`というファイルに設定を記述してホー�
 - [.vimrc.keymap](https://github.com/ikenox/dotfiles/blob/master/vimrc.keymap)
 - [.ideavimrc](https://github.com/ikenox/dotfiles/blob/master/ideavimrc)
 
-## IntelliJの機能をキーマッピング
+### IntelliJの機能をキーマッピング
 
 上記の`.ideavimrc`を見てもらうと、`nnoremap xxx :action yyy`という記述が多くあることがわかります。  
 IdeaVimでは`:action`コマンドで **IntelliJの機能(Action)を呼び出して使用することができます**。  
 カーソルの移動など単純な操作からもっと高次な機能まで、IntelliJがAPIとして提供しているActionや、インストールしているプラグインで定義されているActionは全て呼び出せるようです。**IntelliJの強力なコードジャンプやリファクタ機能についても、Vimのキーマップ的な設定・呼び出しが可能ということになります**。  
 このAction呼び出し機能により、IdeaVimとIntelliJの連携の自由度が格段に上がります。    
 
-### 設定しておくと幸せになれそうなActionの一例
+#### 設定しておくと幸せになれそうなActionの一例
 
 |Action|概要|
 :----|:----
@@ -117,9 +117,9 @@ vnoremap == :action ReformatCode<CR>
 また、`:actionlist hoge`と検索することで名前に`hoge`を含むActionを検索することもできます。  
 自分が何らかの機能をキーマップに設定したいと思った際は、IntelliJの`[Preferences] > [Keymap]`から設定したいAction名の見当をつけた上で`:actionlist`コマンドで探すという手順を取っています。
 
-# その他
+## その他
 
-## EAP build
+### EAP build
 
 IdeaVimのアップデート頻度は年に数回程度と、そこまで高くはありません。  
 IntelliJ内から`[Settings] > [Plugins] > [Browse Repositories] > [Manage Repositories]`に下記のURLを追加することで、まだ正式にはリリースされていないEAP[^1] buildのIdeaVimを利用することができます。  
@@ -128,7 +128,7 @@ IntelliJ内から`[Settings] > [Plugins] > [Browse Repositories] > [Manage Repos
 
 [^1]: Early Access Program
 
-# おわりに
+## おわりに
 
 本記事ではIdeaVimの機能や設定方法について説明しました。  
 IdeaVimはまだ発展途上な部分もありますが、IntelliJの強力な機能をそのまま活かしつつVimの操作性を取り入れることができる素晴らしいプラグインだと思います。  
