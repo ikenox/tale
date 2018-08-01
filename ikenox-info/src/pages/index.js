@@ -19,11 +19,11 @@ class BlogIndex extends React.Component {
           return (
             <div key={node.fields.slug} style={{marginTop: "36px"}}>
               <small className={`date-text`}>{node.frontmatter.date}</small>
-              <h3 style={{marginTop: "4px", marginBottom:"4px"}}>
+              <h2 style={{marginTop: "4px", marginBottom:"4px"}}>
                 <Link style={{boxShadow: 'none'}} to={node.fields.slug}>
                   {title}
                 </Link>
-              </h3>
+              </h2>
               <p style={{fontSize: ".9em", marginTop: 0, lineHeight:"1.8em"}} dangerouslySetInnerHTML={{__html: node.excerpt}}/>
             </div>
           )
