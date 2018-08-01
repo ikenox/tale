@@ -24,7 +24,7 @@ class About extends React.Component {
             <li>Server-side Development (Perl, Python, Java, SQL)</li>
             <li>Android App Development (Java)</li>
             <li>Data Analysis and Visualization (Python)</li>
-            <li>Other (Git, HTML, CSS)</li>
+            <li>Others (Git, HTML, CSS)</li>
           </ul>
 
           <h2 id="interests">Interests</h2>
