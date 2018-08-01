@@ -1,6 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: "ikenox.info",
+    siteUrl: "https://ikenox.info",
+    description: "ikenox's Tech blog",
     author: "Naoto Ikeno",
     sns: {
       "twitter": "https://twitter.com/ikenoxx"
@@ -47,5 +49,8 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-meta-redirect`,
+    {
+      resolve: `gatsby-plugin-feed`
+    },
   ],
 }
