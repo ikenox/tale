@@ -23,6 +23,7 @@ class Bio extends React.Component {
             src={profilePic}
             alt={`Naoto Ikeno`}
             width={80}
+            height={80}
             style={{ borderRadius:40 }}
           />
         </Link>
